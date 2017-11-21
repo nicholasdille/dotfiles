@@ -1,5 +1,14 @@
 # Installation
 
+```
+git clone --bare https://github.com/nicholasdille/dotfiles $HOME/.cfg
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+config config --local status.showUntrackedFiles no
+echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.bashrc
+```
+
+# Prerequisites
+
 ## System
 
 ```
