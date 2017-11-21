@@ -8,28 +8,9 @@ set nocompatible
 filetype plugin indent off
 syntax off
 
-" set the runtime path for vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-
-" start vundle environment
-call vundle#begin()
-
-" list of plugins {{{2
-" let Vundle manage Vundle (this is required)
-"old: Plugin 'gmarik/Vundle.vim'
-Plugin 'VundleVim/Vundle.vim'
-
-" to install a plugin add it here and run :PluginInstall.
-" to update the plugins run :PluginInstall! or :PluginUpdate
-" to delete a plugin remove it here and run :PluginClean
-" 
-
-" YOUR LIST OF PLUGINS GOES HERE LIKE THIS:
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-" add plugins before this
-call vundle#end()
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+set laststatus=2
+set t_Co=256
 
 " now (after vundle finished) it is save to turn filetype plugins on
 filetype plugin indent on

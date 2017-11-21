@@ -24,17 +24,32 @@ sudo pip install powerline-status
 ```
 wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
 wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
-mkdir -p ~/.local/share/fonts/
-mv PowerlineSymbols.otf ~/.local/share/fonts/
-fc-cache -vf ~/.local/share/fonts/
-mkdir -p ~/.config/fontconfig/conf.d/
-mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+mv PowerlineSymbols.otf /usr/share/fonts/
+fc-cache -vf /usr/share/fonts/
+mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 ```
+
+### bash
+
+Add the following to `.bashrc`:
+
+```
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+```
+
+Maybe the above only works for certain values of `TERM`, e.g. `export TERM=xterm`.
 
 ### vim
 
-```
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-```
+Add the following to `.vimrc`:
 
-Open `vim` and call `:PluginInstall`
+```
+set  rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+set laststatus=2
+set t_Co=256
+```
