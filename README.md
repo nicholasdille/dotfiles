@@ -53,3 +53,18 @@ set  rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 set laststatus=2
 set t_Co=256
 ```
+
+### zsh
+
+```
+git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
+echo 'source  ~/powerlevel9k/powerlevel9k.zsh-theme' >> ~/.zshrc
+```
+
+### tmux
+
+Add the following to your `.tmux.conf`:
+
+```
+source '/usr/local/lib/python2.7/dist-packages/powerline/bindings/tmux/powerline.conf'
+```
