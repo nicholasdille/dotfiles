@@ -12,7 +12,7 @@ echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $H
 ## System
 
 ```
-sudo apt install build-essentials fontconfig
+sudo apt install build-essential fontconfig
 sudo apt install python-pip powerline-status
 ```
 
