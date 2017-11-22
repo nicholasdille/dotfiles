@@ -11,10 +11,16 @@ config config --local status.showUntrackedFiles no
 
 ## System
 
+### Linux
+
 ```
 sudo apt install build-essential fontconfig
 sudo apt install python-pip powerline-status
 ```
+
+### WSL
+
+Install [wsl-terminal](https://github.com/goreliu/wsl-terminal) following these [instructions](https://github.com/goreliu/wsl-terminal#usage) and install at least one of the [NerdFonts](https://github.com/ryanoasis/nerd-fonts)
 
 ## User
 
