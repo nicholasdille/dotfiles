@@ -20,6 +20,12 @@ sudo apt install python-pip powerline-status
 
 ### WSL
 
+Enable WSL:
+
+```powershell
+Enable-WindowsOptionalFeature -FeatureName Microsoft-Windows-Subsystem-Linux -Online
+```
+
 Install [wsl-terminal](https://github.com/goreliu/wsl-terminal) following these [instructions](https://github.com/goreliu/wsl-terminal#usage) and install at least one of the [NerdFonts](https://github.com/ryanoasis/nerd-fonts)
 
 ## User
