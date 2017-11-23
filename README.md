@@ -71,3 +71,7 @@ Add the following to your `.tmux.conf`:
 ```
 source '/usr/local/lib/python2.7/dist-packages/powerline/bindings/tmux/powerline.conf'
 ```
+
+### ssh-agent
+
+I consider WSL to be a tool but my Windows is authorative. Therefore, my KeePass2 is responsible for storing SSH private keys and providing an SSH agent. Using [this guide](https://solariz.de/de/ubuntu-subsystem-windows-keepass-keeagent-pageant-linux-ssh.htm), I was able to implement this requirement.
