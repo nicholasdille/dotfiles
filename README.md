@@ -75,3 +75,12 @@ source '/usr/local/lib/python2.7/dist-packages/powerline/bindings/tmux/powerline
 ### ssh-agent
 
 I consider WSL to be a tool but my Windows is authorative. Therefore, my KeePass2 is responsible for storing SSH private keys and providing an SSH agent. Using [this guide](https://solariz.de/de/ubuntu-subsystem-windows-keepass-keeagent-pageant-linux-ssh.htm), I was able to implement this requirement. It relies on [weasel-pageant](https://github.com/vuori/weasel-pageant).
+
+### dircolors
+
+Colors are seriously mangled in WSL. A solution for this is:
+
+```
+git clone https://github.com/seebi/dircolors-solarized
+eval $(dircolors dircolors-solarized/dircolors.256dark)
+```
