@@ -123,8 +123,8 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # see: https://solariz.de/de/ubuntu-subsystem-windows-keepass-keeagent-pageant-linux-ssh.htm
 # killing old running socket
 echo -n "pageant:"
-/mnt/c/Users/DilleN/Documents/ubuntu/weasel-pageant-1.0/weasel-pageant -k >/dev/null 2>/dev/null
-eval $(/mnt/c/Users/DilleN/Documents/ubuntu/weasel-pageant-1.0/weasel-pageant -r -a "/tmp/.weasel-pageant-$USER") >/dev/null 2>/dev/null
+~/ubuntu/weasel-pageant-1.0/weasel-pageant -k >/dev/null 2>/dev/null
+eval $(~/ubuntu/weasel-pageant-1.0/weasel-pageant -r -a "/tmp/.weasel-pageant-$USER") >/dev/null 2>/dev/null
 sleep .5
 sshkeysloaded=$(ssh-add -l|grep -c SHA)
 if [[ $sshkeysloaded -gt 0 ]] ; then
@@ -135,7 +135,7 @@ fi
 echo
 
 # fix colors in wsl
-eval $(dircolors dircolors-solarized/dircolors.256dark)
+eval $(dircolors ~/dircolors-solarized/dircolors.256dark)
 
 # add beautiful prompt
 powerline-daemon -q
