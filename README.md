@@ -21,6 +21,12 @@ Unfortunately, you need to [install a distribution from the App Store manually](
 
 Install [wsl-terminal](https://github.com/goreliu/wsl-terminal) following these [instructions](https://github.com/goreliu/wsl-terminal#usage) and install at least one of the [NerdFonts](https://github.com/ryanoasis/nerd-fonts)
 
+The following shows a useful command to launch a maximized window running a login shell in your Linux home directory.
+
+```
+%userprofile%\Documents\wsl-terminal\open-wsl.exe -C ~ -l -B "--window max --title WSL"
+```
+
 ### Linux
 
 The following commands are required to to install packages before setting up pretty prompts and status bars.
