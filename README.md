@@ -104,3 +104,24 @@ eval $(dircolors dircolors-solarized/dircolors.256dark)
 ```
 
 This is already integrated into my dotfiles.
+
+## PowerShell
+
+If you are planning to do something similar with PowerShell you need to use a terminal emulator, like [ConEmu](https://conemu.github.io/) or [Cmder](http://cmder.net/).
+
+The following commands will get you started with a nice prompt:
+
+```powershell
+Install-Module -Name PowerLine
+Import-Module -Name PowerLine
+Set-PowerLinePrompt -SetCurrentDirectory -RestoreVirtualTerminal -Newline -Timestamp -Colors "#00DDFF","#0066FF"
+```
+
+If you are looking for theme management, take a look at [oh-my-posh](https://github.com/JanJoris/oh-my-posh):
+
+```powershell
+Import-Module -Name posh-git, oh-my-posh
+Set-Theme agnoster
+```
+
+You should be using [fonts from here](https://github.com/gabrielelana/awesome-terminal-fonts).
