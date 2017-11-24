@@ -107,7 +107,7 @@ This is already integrated into my dotfiles.
 
 ## PowerShell
 
-If you are planning to do something similar with PowerShell you need to use a terminal emulator, like [ConEmu](https://conemu.github.io/) or [Cmder](http://cmder.net/).
+If you are planning to do something similar with PowerShell you need to use a terminal emulator, like [ConEmu](https://conemu.github.io/) or [Cmder](http://cmder.net/). They can also be used [for WSL as described here](https://conemu.github.io/en/BashOnWindows.html).
 
 The following commands will get you started with a nice prompt:
 
