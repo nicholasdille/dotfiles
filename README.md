@@ -17,14 +17,27 @@ On Windows you need to install the Windows Subsystem for Linux (WSL) before inst
 Enable-WindowsOptionalFeature -FeatureName Microsoft-Windows-Subsystem-Linux -Online
 ```
 
-Unfortunately, you need to [install a distribution from the App Store manually](https://aka.ms/wslstore).
+After a reboot, you need to [install a distribution from the App Store manually](https://aka.ms/wslstore).
 
-Install [wsl-terminal](https://github.com/goreliu/wsl-terminal) following these [instructions](https://github.com/goreliu/wsl-terminal#usage) and install at least one of the [NerdFonts](https://github.com/ryanoasis/nerd-fonts)
+For pretty prompts you need to install a proper terminal emulator for WSL like [wsl-terminal](https://github.com/goreliu/wsl-terminal):
 
-The following shows a useful command to launch a maximized window running a login shell in your Linux home directory.
+```powershell
+$WslTerminVersion = '0.8.7'
+$WslTerminalUrl = "https://github.com/goreliu/wsl-terminal/releases/download/v$WslTerminVersion/wsl-terminal-$WslTerminVersion.zip"
+Invoke-WebRequest -UseBasicParsing -Uri $WslTerminalUrl -OutFile "$env:Temp\wsl-terminal.zip"
+Expand-Archive -Path "$env:Temp\wsl-terminal.zip" -DestinationPath "~\Documents\Apps"
+```
+
+A nice way for opening a terminal is now:
 
 ```
 %userprofile%\Documents\wsl-terminal\open-wsl.exe -C ~ -l -B "--window max --title WSL"
+```
+
+You will also need a proper font preferrably from the [NerdFonts](https://github.com/ryanoasis/nerd-fonts) project:
+
+```bash
+XXX
 ```
 
 ### Linux
