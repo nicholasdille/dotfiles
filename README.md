@@ -28,7 +28,7 @@ Invoke-WebRequest -UseBasicParsing -Uri $WslTerminalUrl -OutFile "$env:Temp\wsl-
 Expand-Archive -Path "$env:Temp\wsl-terminal.zip" -DestinationPath "~\Documents\Apps"
 ```
 
-XXX fonts
+The following commands install fonts required for pretty prompts:
 
 ```powershell
 git clone https://github.com/powerline/fonts.git $env:Temp\fonts
