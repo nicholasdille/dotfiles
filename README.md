@@ -9,7 +9,7 @@ config config --local status.showUntrackedFiles no
 
 ## Prerequisites
 
-### WSL
+### WSL only
 
 On Windows you need to install the Windows Subsystem for Linux (WSL) before installing the other prerequisites:
 
@@ -28,36 +28,30 @@ Invoke-WebRequest -UseBasicParsing -Uri $WslTerminalUrl -OutFile "$env:Temp\wsl-
 Expand-Archive -Path "$env:Temp\wsl-terminal.zip" -DestinationPath "~\Documents\Apps"
 ```
 
+XXX fonts
+
+```powershell
+git clone https://github.com/powerline/fonts.git $env:Temp\fonts
+cd $env:Temp\fonts
+.\install.ps1
+```
+
 A nice way for opening a terminal is now:
 
 ```
 %userprofile%\Documents\wsl-terminal\open-wsl.exe -C ~ -l -B "--window max --title WSL"
 ```
 
-You will also need a proper font preferrably from the [NerdFonts](https://github.com/ryanoasis/nerd-fonts) project:
+After the first start of `open-wsl.exe`, configure a font and optionally choose a theme.
+
+### Linux (including WSL)
+
+Although many guide for PowerLine describe using `pip` to build and install it but I prefer using the binary package from the Ubuntu Universe repository:
 
 ```bash
-XXX
-```
-
-### Linux
-
-The following commands are required to to install packages before setting up pretty prompts and status bars.
-
-
-```bash
-sudo apt install build-essential fontconfig
-sudo apt install python-pip powerline-status
-```
-
-Some more commands to setup a proper font:
-
-```bash
-wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
-wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
-mv PowerlineSymbols.otf /usr/share/fonts/
-fc-cache -vf /usr/share/fonts/
-mv 10-powerline-symbols.conf /etc/fonts/conf.d/
+sudo add-apt-repository universe
+sudo apt-get update
+sudo apt-get install powerline
 ```
 
 ## Enable pretty prompts
