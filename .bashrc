@@ -134,11 +134,8 @@ else
 fi
 echo
 
-# fix colors in wsl
-eval $(dircolors ~/dircolors-solarized/dircolors.256dark)
-
 # add beautiful prompt
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-. /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+. /usr/share/powerline/bindings/bash/powerline.sh
