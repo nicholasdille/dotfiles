@@ -38,7 +38,7 @@ cd $env:Temp\fonts
 A nice way for opening a terminal is now:
 
 ```
-%userprofile%\Documents\wsl-terminal\open-wsl.exe -C ~ -l -B "--window max --title WSL"
+%userprofile%\Documents\wsl-terminal\open-wsl.exe -C ~ -l -B "--window max"
 ```
 
 After the first start of `open-wsl.exe`, configure a font and optionally choose a theme.
@@ -53,61 +53,9 @@ sudo apt-get update
 sudo apt-get install powerline
 ```
 
-## Enable pretty prompts
-
-All commands displayed below are already integrated into my dotdiles.
-
-### bash
-
-Add the following to `.bashrc`:
-
-```
-export TERM=xterm-256color
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
-```
-
-### vim
-
-Add the following to `.vimrc`:
-
-```
-set  rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
-set laststatus=2
-set t_Co=256
-```
-
-### zsh
-
-```
-git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
-echo 'source  ~/powerlevel9k/powerlevel9k.zsh-theme' >> ~/.zshrc
-```
-
-### tmux
-
-Add the following to your `.tmux.conf`:
-
-```
-source '/usr/local/lib/python2.7/dist-packages/powerline/bindings/tmux/powerline.conf'
-```
-
 ## SSH agent on WSL
 
 I consider WSL to be a tool but my Windows is authorative. Therefore, my KeePass2 is responsible for storing SSH private keys and providing an SSH agent. Using [this guide](https://solariz.de/de/ubuntu-subsystem-windows-keepass-keeagent-pageant-linux-ssh.htm), I was able to implement this requirement. It relies on [weasel-pageant](https://github.com/vuori/weasel-pageant).
-
-This is already integrated into my dotfiles.
-
-## Fix dircolors
-
-Colors are seriously mangled in WSL. A solution for this is:
-
-```
-git clone https://github.com/seebi/dircolors-solarized
-eval $(dircolors dircolors-solarized/dircolors.256dark)
-```
 
 This is already integrated into my dotfiles.
 
