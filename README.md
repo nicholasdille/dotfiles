@@ -55,7 +55,14 @@ sudo apt-get install powerline
 
 ## SSH agent on WSL
 
-I consider WSL to be a tool but my Windows is authorative. Therefore, my KeePass2 is responsible for storing SSH private keys and providing an SSH agent. Using [this guide](https://solariz.de/de/ubuntu-subsystem-windows-keepass-keeagent-pageant-linux-ssh.htm), I was able to implement this requirement. It relies on [weasel-pageant](https://github.com/vuori/weasel-pageant).
+I consider WSL to be a tool but my Windows is authorative. Therefore, my KeePass2 is responsible for storing SSH private keys and providing an SSH agent. The following commands rely on [weasel-pageant](https://github.com/vuori/weasel-pageant):
+
+```powershell
+$WeaselPageantVersion = 1.0
+Invoke-WebRequest -UseBasicParsing -Uri https://github.com/vuori/weasel-pageant/releases/download/v$WeaselPageantVersion/weasel-pageant-$WeaselPageantVersion.zip -OutFile $env:temp\weasel-pageant-$WeaselPageantVersion.zip
+Expand-Archive -Path $env:temp\weasel-pageant-1.0.zip -DestinationPath ~\Documents\Apps
+Rename-Item -Path ~\Documents\Apps\weasel-pageant-1.0 -NewName ~\Documents\Apps\weasel-pageant
+```
 
 This is already integrated into my dotfiles.
 
