@@ -24,6 +24,7 @@ For pretty prompts you need to install a proper terminal emulator for WSL like [
 $WslTerminVersion = '0.8.7'
 $WslTerminalUrl = "https://github.com/goreliu/wsl-terminal/releases/download/v$WslTerminVersion/wsl-terminal-$WslTerminVersion.zip"
 Invoke-WebRequest -UseBasicParsing -Uri $WslTerminalUrl -OutFile "$env:Temp\wsl-terminal.zip"
+Unblock-File -Path "$env:Temp\wsl-terminal.zip"
 Expand-Archive -Path "$env:Temp\wsl-terminal.zip" -DestinationPath "~\Documents\Apps"
 ```
 
@@ -59,7 +60,8 @@ I consider WSL to be a tool but my Windows is authorative. Therefore, my KeePass
 
 ```powershell
 $WeaselPageantVersion = 1.0
-Invoke-WebRequest -UseBasicParsing -Uri https://github.com/vuori/weasel-pageant/releases/download/v$WeaselPageantVersion/weasel-pageant-$WeaselPageantVersion.zip -OutFile $env:temp\weasel-pageant-$WeaselPageantVersion.zip
+Invoke-WebRequest -UseBasicParsing -Uri https://github.com/vuori/weasel-pageant/releases/download/v$WeaselPageantVersion/weasel-pageant-$WeaselPageantVersion.zip -OutFile "$env:temp\weasel-pageant-$WeaselPageantVersion.zip"
+Unblock-File -Path "$env:temp\weasel-pageant-$WeaselPageantVersion.zip"
 Expand-Archive -Path $env:temp\weasel-pageant-1.0.zip -DestinationPath ~\Documents\Apps
 Rename-Item -Path ~\Documents\Apps\weasel-pageant-1.0 -NewName ~\Documents\Apps\weasel-pageant
 ```
