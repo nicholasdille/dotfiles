@@ -119,6 +119,10 @@ fi
 # add alias for managing dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# add docker completion
+# see: https://github.com/docker/cli/tree/master/contrib/completion/bash
+. ~/.docker-completion
+
 # using pagent / Keepass for Authentication
 # see: https://solariz.de/de/ubuntu-subsystem-windows-keepass-keeagent-pageant-linux-ssh.htm
 # killing old running socket
