@@ -38,4 +38,3 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 export TERM=xterm-256color
-source  ~/powerlevel9k/powerlevel9k.zsh-theme
