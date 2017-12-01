@@ -56,6 +56,7 @@ fi
 
 # tools
 export PAGER=most
+export EDITOR=vim
 
 # add docker completion
 # see: https://github.com/docker/cli/tree/master/contrib/completion/bash
