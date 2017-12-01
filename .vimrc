@@ -1,8 +1,3 @@
-" load pathogen package manager
-" loads any module under ~/.vim/bundle/
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
-
 " sanity for sourcing
 set nocompatible
 
@@ -48,7 +43,7 @@ set nostartofline
 set ruler
 
 " always show status bar
-set laststatus=2
+"set laststatus=2
 
 " visual bell instead of beep
 set visualbell
@@ -57,6 +52,11 @@ set t_vb=
 
 " enable mouse
 "set mouse=a
+
+" load pathogen package manager
+" loads any module under ~/.vim/bundle/
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
 
 " load theme theme
 "let g:airline_theme='jellybeans'
