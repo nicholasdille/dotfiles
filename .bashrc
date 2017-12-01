@@ -57,9 +57,6 @@ fi
 # tools
 export PAGER=most
 
-# add alias for managing dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
 # add docker completion
 # see: https://github.com/docker/cli/tree/master/contrib/completion/bash
 . ~/.docker-completion
