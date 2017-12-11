@@ -69,11 +69,12 @@ echo -n "pageant:"
 ~/home/Documents/Apps/weasel-pageant/weasel-pageant -k >/dev/null 2>/dev/null
 eval $(~/home/Documents/Apps/weasel-pageant/weasel-pageant -r -a "/tmp/.weasel-pageant-$USER") >/dev/null 2>/dev/null
 sleep .5
-sshkeysloaded=$(ssh-add -l|grep -c SHA)
-if [[ $sshkeysloaded -gt 0 ]] ; then
-	echo -e "\e[92m OK, ready for Agent forward, loaded $sshkeysloaded keys."
+SSHADDL=$(ssh-add -l 2>&1)
+KEYS=$(echo ${SSHADDL} | grep -c SHA)
+if echo ${SSHADDL} | grep -q "agent refused operation"; then
+    echo -e "\e[91m Agent connection failed."
 else
-	echo -e "\e[91m Fail, no keys found or pageant connection failed. "
+    echo -e "\e[92m Connected to agent with ${KEYS} key(s)."
 fi
 echo
 
