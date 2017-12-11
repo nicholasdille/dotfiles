@@ -65,18 +65,23 @@ export EDITOR=vim
 # using pagent / Keepass for Authentication
 # see: https://solariz.de/de/ubuntu-subsystem-windows-keepass-keeagent-pageant-linux-ssh.htm
 # killing old running socket
-echo -n "pageant:"
-~/home/Documents/Apps/weasel-pageant/weasel-pageant -k >/dev/null 2>/dev/null
-eval $(~/home/Documents/Apps/weasel-pageant/weasel-pageant -r -a "/tmp/.weasel-pageant-$USER") >/dev/null 2>/dev/null
-sleep .5
-SSHADDL=$(ssh-add -l 2>&1)
-KEYS=$(echo ${SSHADDL} | grep -c SHA)
-if echo ${SSHADDL} | grep -q "agent refused operation"; then
-    echo -e "\e[91m Agent connection failed."
+if [ -s "~/home" ]; then
+    echo -n "pageant:"
+    ~/home/Documents/Apps/weasel-pageant/weasel-pageant -k >/dev/null 2>/dev/null
+    eval $(~/home/Documents/Apps/weasel-pageant/weasel-pageant -r -a "/tmp/.weasel-pageant-$USER") >/dev/null 2>/dev/null
+    sleep .5
+    SSHADDL=$(ssh-add -l 2>&1)
+    KEYS=$(echo ${SSHADDL} | grep -c SHA)
+    if echo ${SSHADDL} | grep -q "agent refused operation"; then
+        echo -e "\e[91m Agent connection failed."
+    else
+        echo -e "\e[92m Connected to agent with ${KEYS} key(s)."
+    fi
+    echo
+
 else
-    echo -e "\e[92m Connected to agent with ${KEYS} key(s)."
+    echo "\e[91m Missing symlink from ~/home to Windows %UserProfile%"
 fi
-echo
 
 # add beautiful prompt
 powerline-daemon -q
