@@ -80,7 +80,7 @@ if [ -s "~/home" ]; then
     echo
 
 else
-    echo "\e[91m Missing symlink from ~/home to Windows %UserProfile%"
+    echo -e "\e[91m Missing symlink from ~/home to Windows %UserProfile%"
 fi
 
 # add beautiful prompt
