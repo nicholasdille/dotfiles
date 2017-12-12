@@ -65,8 +65,8 @@ export EDITOR=vim
 # using pagent / Keepass for Authentication
 # see: https://solariz.de/de/ubuntu-subsystem-windows-keepass-keeagent-pageant-linux-ssh.htm
 # killing old running socket
-if [ -s "~/home" ]; then
-    echo -n "pageant:"
+echo -n "pageant:"
+if [ -L "${HOME}/home" ]; then
     ~/home/Documents/Apps/weasel-pageant/weasel-pageant -k >/dev/null 2>/dev/null
     eval $(~/home/Documents/Apps/weasel-pageant/weasel-pageant -r -a "/tmp/.weasel-pageant-$USER") >/dev/null 2>/dev/null
     sleep .5
