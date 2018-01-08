@@ -11,6 +11,7 @@ set autoindent
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+autocmd FileType yaml setlocal shiftwidth=2
 " ???
 set nopaste
 
