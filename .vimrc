@@ -12,8 +12,11 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 autocmd FileType yaml setlocal shiftwidth=2
-" ???
-set nopaste
+autocmd FileType Makefile setlocal noexpandtab
+
+" enable reading configuration from source file
+set modeline
+set modelines=5
 
 " enable re-using windows and saving buffers for multiple files
 set hidden
