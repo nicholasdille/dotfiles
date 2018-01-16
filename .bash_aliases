@@ -1,8 +1,15 @@
 alias gs="git status -s"
+alias gd="git diff"
 alias ga="git add"
-alias gc="git commit"
+alias gaa="git add --all"
+alias gc="git commit -m"
+alias gpsh="git push"
+alias gpll="git pull"
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cs="config status -s"
 alias ca="config add"
-alias cc="config commit"
+alias caa="config add --all"
+alias cc="config commit -m"
+alias cpsh="config push"
+alias cpll="config pull"
