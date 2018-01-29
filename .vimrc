@@ -63,5 +63,5 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 " load theme theme
-"let g:airline_theme='jellybeans'
-colorscheme jellybeans
+let g:airline_theme='jellybeans'
+"colorscheme jellybeans
