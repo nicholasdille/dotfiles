@@ -67,9 +67,11 @@ export EDITOR=vim
 # killing old running socket
 echo -n "pageant:"
 if [ -L "${HOME}/home" ]; then
-    ~/home/Documents/Apps/weasel-pageant/weasel-pageant -k >/dev/null 2>/dev/null
-    eval $(~/home/Documents/Apps/weasel-pageant/weasel-pageant -r -a "/tmp/.weasel-pageant-$USER") >/dev/null 2>/dev/null
-    sleep .5
+    if ! ps -C weasel-pageant --no-header >/dev/null; then
+        ~/home/Documents/Apps/weasel-pageant/weasel-pageant -k >/dev/null 2>/dev/null
+        eval $(~/home/Documents/Apps/weasel-pageant/weasel-pageant -r -a "/tmp/.weasel-pageant-$USER") >/dev/null 2>/dev/null
+        sleep .5
+    fi
     SSHADDL=$(ssh-add -l 2>&1)
     KEYS=$(echo ${SSHADDL} | grep -c SHA)
     if echo ${SSHADDL} | grep -q "agent refused operation"; then
