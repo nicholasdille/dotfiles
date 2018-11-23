@@ -22,7 +22,7 @@ After a reboot, you need to [install a distribution from the App Store manually]
 For pretty prompts you need to install a proper terminal emulator for WSL like [wsl-terminal](https://github.com/goreliu/wsl-terminal):
 
 ```powershell
-$WslTerminVersion = '0.8.7'
+$WslTerminVersion = '0.8.11'
 $WslTerminalUrl = "https://github.com/goreliu/wsl-terminal/releases/download/v$WslTerminVersion/wsl-terminal-$WslTerminVersion.zip"
 Invoke-WebRequest -UseBasicParsing -Uri $WslTerminalUrl -OutFile "$env:Temp\wsl-terminal.zip"
 Unblock-File -Path "$env:Temp\wsl-terminal.zip"
@@ -50,7 +50,6 @@ After the first start of `open-wsl.exe`, configure a font and optionally choose 
 Although many guide for PowerLine describe using `pip` to build and install it but I prefer using the binary package from the Ubuntu Universe repository:
 
 ```bash
-sudo add-apt-repository universe
 sudo apt-get update
 sudo apt-get install powerline
 ```
@@ -60,11 +59,11 @@ sudo apt-get install powerline
 I consider WSL to be a tool but my Windows is authorative. Therefore, my KeePass2 is responsible for storing SSH private keys and providing an SSH agent. The following commands rely on [weasel-pageant](https://github.com/vuori/weasel-pageant):
 
 ```powershell
-$WeaselPageantVersion = 1.0
+$WeaselPageantVersion = 1.1
 Invoke-WebRequest -UseBasicParsing -Uri https://github.com/vuori/weasel-pageant/releases/download/v$WeaselPageantVersion/weasel-pageant-$WeaselPageantVersion.zip -OutFile "$env:temp\weasel-pageant-$WeaselPageantVersion.zip"
 Unblock-File -Path "$env:temp\weasel-pageant-$WeaselPageantVersion.zip"
-Expand-Archive -Path $env:temp\weasel-pageant-1.0.zip -DestinationPath ~\Documents\Apps
-Rename-Item -Path ~\Documents\Apps\weasel-pageant-1.0 -NewName ~\Documents\Apps\weasel-pageant
+Expand-Archive -Path $env:temp\weasel-pageant-$WeaselPageantVersion.zip -DestinationPath ~\Documents\Apps
+Rename-Item -Path ~\Documents\Apps\weasel-pageant-$WeaselPageantVersion -NewName ~\Documents\Apps\weasel-pageant
 ```
 
 This is already integrated into my dotfiles.
