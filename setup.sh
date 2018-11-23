@@ -1,7 +1,25 @@
 #!/bin/bash
-set -x -e
+set -e
+
+# Add repo for az
+sudo apt-get install apt-transport-https lsb-release software-properties-common -y
+AZ_REPO=$(lsb_release -cs)
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
+curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xBC528686B50D79E339D3721CEB3E94ADBE1229CF" | sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg add
+
+# install distro packages
+sudo apt-get update
+sudo apt-get -y install \
+    unzip \
+    wget \
+    curl \
+    pigz \
+    tree \
+    azure-cli \
+    awscli
 
 TARGET=~/.local/bin
+mkdir -p ${TARGET}
 
 # Rancher CLI
 if ! type rancher >/dev/null; then
@@ -34,9 +52,8 @@ fi
 if ! type docker-ls docker-rm >/dev/null; then
     DOCKER_LS_VERSION=0.3.2
     wget https://github.com/mayflower/docker-ls/releases/download/v${DOCKER_LS_VERSION}/docker-ls-linux-amd64.zip
-    unzip docker-ls-linux-amd64.zip
+    unzip -d ${TARGET} docker-ls-linux-amd64.zip
     rm docker-ls-linux-amd64.zip
-    mv docker-{ls,rm} ~/.local/bin/
 fi
 
 # kubectl
