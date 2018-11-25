@@ -59,7 +59,7 @@ export PAGER=most
 export EDITOR=vim
 
 # add docker completion
-# see: https://github.com/docker/cli/tree/master/contrib/completion/bash
+# see: https://github.com/docker/cli/raw/18.09/contrib/completion/bash/docker
 . ~/.docker-completion
 
 # using pagent / Keepass for Authentication

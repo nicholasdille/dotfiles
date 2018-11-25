@@ -2,3 +2,5 @@
 	default = simple
 [credential]
 	helper = store
+[include]
+    path = .gitconfig-local
