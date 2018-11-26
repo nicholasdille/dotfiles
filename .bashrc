@@ -54,15 +54,19 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# enable custom bash completion
+if [ -d ~/.bash_completion.d ]; then
+    for FILE in ~/.bash_completion.d/* ; do
+      [ -f "${FILE}" ] && . ${FILE}
+    done
+fi
+
+# go to user home
 cd ~
 
 # tools
 export PAGER=most
 export EDITOR=vim
-
-# add docker completion
-# see: https://github.com/docker/cli/raw/18.09/contrib/completion/bash/docker
-. ~/.completion-docker
 
 # add beautiful prompt
 powerline-daemon -q

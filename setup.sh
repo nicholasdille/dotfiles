@@ -2,21 +2,32 @@
 set -e
 
 # Add repo for az
-sudo apt-get install apt-transport-https lsb-release software-properties-common -y
-AZ_REPO=$(lsb_release -cs)
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
+source /etc/lsb-release
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ ${DISTRIB_CODENAME} main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
 curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xBC528686B50D79E339D3721CEB3E94ADBE1229CF" | sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg add
+
+# Add repo for Docker CE
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
 # install distro packages
 sudo apt-get update
 sudo apt-get -y install \
+    lsb-release \
+    apt-transport-https \
+    ca-certificates \
+    software-properties-common \
     unzip \
     wget \
     curl \
     pigz \
     tree \
+    docker-ce \
     azure-cli \
     awscli
+
+# Docker
+curl -sL https://github.com/docker/cli/raw/18.09/contrib/completion/bash/docker | sudo tee ~/.bash_completion.d/docker >/dev/null
 
 TARGET=~/.local/bin
 mkdir -p ${TARGET}
@@ -32,6 +43,7 @@ if ! type docker-compose >/dev/null; then
     DOCKER_COMPOSE_VERSION=1.23.1
     curl -sL https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-Linux-x86_64 > ${TARGET}/docker-compose
     chmod +x ${TARGET}/docker-compose
+    curl -sL https://github.com/docker/compose/blob/1.23.1/contrib/completion/bash/docker-compose > ~/.bash_completion.d/docker-compose
 fi
 
 # docker-machine
