@@ -41,7 +41,7 @@ fi
 # docker-compose
 if ! type docker-compose >/dev/null; then
     DOCKER_COMPOSE_VERSION=1.23.1
-    curl -sL https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-Linux-x86_64 > ${TARGET}/docker-compose
+    wget -O ${TARGET}/docker-compose https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-Linux-x86_64
     chmod +x ${TARGET}/docker-compose
     curl -sL https://github.com/docker/compose/blob/1.23.1/contrib/completion/bash/docker-compose > ~/.bash_completion.d/docker-compose
 fi
@@ -49,14 +49,14 @@ fi
 # docker-machine
 if ! type docker-machine >/dev/null; then
     DOCKER_MACHINE_VERSION=0.16.0
-    curl -sL https://github.com/docker/machine/releases/download/v${DOCKER_MACHINE_VERSION}/docker-machine-Linux-x86_64 > ${TARGET}/docker-machine
+    wget -O ${TARGET}/docker-machine https://github.com/docker/machine/releases/download/v${DOCKER_MACHINE_VERSION}/docker-machine-Linux-x86_64
     chmod +x ${TARGET}/docker-machine
 fi
 
 # jq
 if ! type jq >/dev/null; then
     JQ_VERSION=1.6
-    curl -sL https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-linux64 > ${TARGET}/jq
+    wget -O ${TARGET}/jq https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-linux64
     chmod +x ${TARGET}/jq
 fi
 
@@ -71,6 +71,7 @@ fi
 # kubectl
 if ! type kubectl >/dev/null; then
     KUBECTL_VERSION=1.12.2
-    curl -sL https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl > ${TARGET}/kubectl
+    wget -O ${TARGET}/kubectl https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl
     chmod +x ${TARGET}/kubectl
+    kubectl completion bash > ~/.bash_completion.d/kubectl
 fi

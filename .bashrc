@@ -65,11 +65,12 @@ fi
 cd ~
 
 # tools
-export PAGER=most
-export EDITOR=vim
+if type most >/dev/null; then
+    export PAGER=most
+fi
+if type vim >/dev/null; then
+    export EDITOR=vim
+fi
 
 # add beautiful prompt
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /usr/share/powerline/bindings/bash/powerline.sh
+. ~/.powerline
