@@ -10,6 +10,11 @@ curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xBC528686B50D79
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
+# Add repo for PowerShell Core
+wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
+
 # install distro packages
 sudo apt-get update
 sudo apt-get -y install \
@@ -23,6 +28,7 @@ sudo apt-get -y install \
     pigz \
     tree \
     docker-ce \
+    powershell \
     azure-cli \
     awscli
 
