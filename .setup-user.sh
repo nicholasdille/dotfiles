@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e
 
-TARGET=~/.local/bin
+source ~/.setup-vars.sh
+
 mkdir -p ${TARGET} ~/.bash_completion.d
 export PATH=$HOME/.local/bin:$PATH
 

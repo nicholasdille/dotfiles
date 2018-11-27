@@ -72,5 +72,14 @@ if type vim >/dev/null; then
     export EDITOR=vim
 fi
 
-# add beautiful prompt
-. ~/.powerline
+# add beautiful prompt (powerline)
+#. ~/.powerline
+
+# add beautiful prompt (pureline)
+#source ~/.local/bin/pureline ~/.pureline.conf
+
+# add beatiful prompt (powerline-go)
+function _update_ps1() {
+    PS1="$(~/.local/bin/powerline-go -error $? -modules user,cwd,exit,git)"
+}
+PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
