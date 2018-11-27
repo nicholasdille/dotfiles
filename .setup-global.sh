@@ -8,7 +8,7 @@ curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xBC528686B50D79
 
 # Add repo for Docker CE
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${DISTRIB_CODENAME} stable"
 
 # Add repo for PowerShell Core
 wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
