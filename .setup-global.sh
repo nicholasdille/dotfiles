@@ -28,11 +28,6 @@ sudo apt-get -y install \
     most \
     pigz \
     tree \
-    python-pip \
-    docker-ce \
     powershell \
     azure-cli \
     awscli
-
-# Powerline
-sudo pip install --upgrade powerline-status
