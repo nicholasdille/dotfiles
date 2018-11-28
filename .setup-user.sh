@@ -98,3 +98,14 @@ if ! type kubectl 2>/dev/null; then
     kubectl completion bash > ~/.bash_completion.d/kubectl
     echo - Done.
 fi
+
+# hub
+if ! type hub 2>/dev/null; then
+    echo
+    echo Installing hub
+    HUB_VERSION=2.6.0
+    echo - Version: ${HUB_VERSION}
+    curl -sL https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.tgz | tar -xz -C ~/.local --strip-components=1 --wildcards hub-linux-amd64-${HUB_VERSION}/bin/* hub-linux-amd64-${HUB_VERSION}/share/* hub-linux-amd64-${HUB_VERSION}/etc/hub.bash_completion.sh
+    mv ~/.local/etc/hub.bash_completion.sh ~/.bash_completion.d/hub
+    echo - Done.
+fi
