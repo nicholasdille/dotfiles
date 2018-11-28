@@ -47,7 +47,7 @@ set nostartofline
 set ruler
 
 " always show status bar
-"set laststatus=2
+set laststatus=2
 
 " visual bell instead of beep
 set visualbell
@@ -57,11 +57,16 @@ set t_vb=
 " enable mouse
 "set mouse=a
 
-" load pathogen package manager
-" loads any module under ~/.vim/bundle/
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+colorscheme blues
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
 
-" load theme theme
-let g:airline_theme='jellybeans'
-"colorscheme jellybeans
+map <C-n> :NERDTreeToggle<CR>
