@@ -1,0 +1,9 @@
+[submodule ".vim/pack/plugins/start/lightline.vim"]
+	path = .vim/pack/plugins/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule ".vim/pack/plugins/start/nerdtree"]
+	path = .vim/pack/plugins/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule ".vim/pack/plugins/start/vim-fugitive"]
+	path = .vim/pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
