@@ -57,7 +57,9 @@ set t_vb=
 " enable mouse
 "set mouse=a
 
-colorscheme blues
+"set termguicolors
+"colorscheme blayu
+colorscheme citylights
 let g:lightline = {
       \ 'colorscheme': 'jellybeans',
       \ 'active': {
