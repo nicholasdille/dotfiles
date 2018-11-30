@@ -76,14 +76,10 @@ if ! tmux display 2>/dev/null; then
     exec tmux
 fi
 
-# add beautiful prompt (powerline)
-#. ~/.powerline
-
-# add beautiful prompt (pureline)
-#source ~/.local/bin/pureline ~/.pureline.conf
-
 # add beatiful prompt (powerline-go)
-function _update_ps1() {
-    PS1="$(~/.local/bin/powerline-go -error $? -modules exit,user,cwd,git,jobs)"
-}
-PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+if type powerline-go >/dev/null 2>&1; then
+    function _update_ps1() {
+        PS1="$(powerline-go -error $? -modules exit,user,cwd,git,jobs)"
+    }
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
