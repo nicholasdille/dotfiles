@@ -109,3 +109,14 @@ if ! type hub 2>/dev/null; then
     mv ~/.local/etc/hub.bash_completion.sh ~/.bash_completion.d/hub
     echo - Done.
 fi
+
+# hcloud
+if ! type hcloud 2>/dev/null; then
+    echo
+    echo Installing hcloud
+    HCLOUD_VERSION=1.10.0
+    echo - Version: ${HCLOUD_VERSION}
+    curl -sL https://github.com/hetznercloud/cli/releases/download/v${HCLOUD_VERSION}/hcloud-linux-amd64-v${HCLOUD_VERSION}.tar.gz | tar -xz -C ~/.local --strip-components=1 --wildcards hcloud-linux-amd64-v${HCLOUD_VERSION}/bin/* hcloud-linux-amd64-v${HCLOUD_VERSION}/etc/hcloud.bash_completion.sh
+    mv ~/.local/etc/hcloud.bash_completion.sh ~/.bash_completion.d/hcloud
+    echo - Done.
+fi
