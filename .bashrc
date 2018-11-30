@@ -72,6 +72,10 @@ if type vim >/dev/null; then
     export EDITOR=vim
 fi
 
+if ! tmux display 2>/dev/null; then
+    exec tmux
+fi
+
 # add beautiful prompt (powerline)
 #. ~/.powerline
 
