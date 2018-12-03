@@ -4,9 +4,18 @@
 # see: https://solariz.de/de/ubuntu-subsystem-windows-keepass-keeagent-pageant-linux-ssh.htm
 # killing old running socket
 echo -n "pageant:"
-if [ -L "${HOME}/home" ]; then
-    eval $(~/home/Documents/Apps/weasel-pageant/weasel-pageant -r -a "/tmp/.weasel-pageant-$USER") >/dev/null 2>/dev/null
-    sleep .5
+
+if test -L "${HOME}/home"; then
+
+    if test -S /tmp/.weasel-pageant-dillen; then
+        export SSH_AUTH_SOCK=/tmp/.weasel-pageant-dillen
+        export SSH_PAGEANT_PID=$(ps -C weasel-pageant -o pid --no-headers)
+
+    else
+        eval $(~/home/Documents/Apps/weasel-pageant/weasel-pageant -r -a "/tmp/.weasel-pageant-$USER") >/dev/null 2>/dev/null
+        sleep .5
+    fi
+
     SSHADDL=$(ssh-add -l 2>&1)
     KEYS=$(echo ${SSHADDL} | grep -c SHA)
     if echo ${SSHADDL} | grep -q "agent refused operation"; then
