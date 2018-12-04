@@ -120,3 +120,13 @@ if ! type hcloud 2>/dev/null; then
     mv ~/.local/etc/hcloud.bash_completion.sh ~/.bash_completion.d/hcloud
     echo - Done.
 fi
+
+# docker-machine driver for Hetzner Cloud
+if ! type docker-machine-driver-hetzner 2>/dev/null; then
+    echo
+    echo Installing docker-machine-driver-hetzner
+    DOCKER_MACHINE_DRIVER_HETZNER_VERSION=1.2.2
+    echo - Version: ${DOCKER_MACHINE_DRIVER_HETZNER_VERSION}
+    curl -sL https://github.com/JonasProgrammer/docker-machine-driver-hetzner/releases/download/${DOCKER_MACHINE_DRIVER_HETZNER_VERSION}/docker-machine-driver-hetzner_${DOCKER_MACHINE_DRIVER_HETZNER_VERSION}_linux_amd64.tar.gz | tar -xz -C ${TARGET}
+    echo - Done.
+fi
