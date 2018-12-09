@@ -28,6 +28,7 @@ sudo apt-get -y install \
     most \
     pigz \
     tree \
+    docker-ce \
     powershell \
     azure-cli \
     awscli
