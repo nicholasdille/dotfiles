@@ -79,7 +79,7 @@ fi
 # add beatiful prompt (powerline-go)
 if test -x ~/.local/bin/powerline-go; then
     function _update_ps1() {
-        PS1="$(~/.local/bin/powerline-go -error $? -modules exit,user,cwd,git,jobs)"
+        PS1="$(~/.local/bin/powerline-go -error $? -modules exit,user,cwd,git,jobs -newline)"
     }
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
