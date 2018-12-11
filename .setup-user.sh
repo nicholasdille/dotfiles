@@ -130,3 +130,14 @@ if ! type docker-machine-driver-hetzner 2>/dev/null; then
     curl -sL https://github.com/JonasProgrammer/docker-machine-driver-hetzner/releases/download/${DOCKER_MACHINE_DRIVER_HETZNER_VERSION}/docker-machine-driver-hetzner_${DOCKER_MACHINE_DRIVER_HETZNER_VERSION}_linux_amd64.tar.gz | tar -xz -C ${TARGET}
     echo - Done.
 fi
+
+# tmux-xpanes
+if ! type xpanes 2>/dev/null; then
+    echo
+    echo Installing tmux-xpanes
+    TMUX_XPANES_VERSION=3.1.0
+    echo - Version: ${TMUX_XPANES_VERSION}
+    curl -sL https://github.com/greymd/tmux-xpanes/raw/v${TMUX_XPANES_VERSION}/bin/xpanes > ${TARGET}/xpanes
+    chmod +x ${TARGET}/xpanes
+    echo - Done.
+fi
