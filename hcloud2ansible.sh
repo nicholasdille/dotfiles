@@ -15,7 +15,7 @@ do
 ---
 
 ansible_host: ${SERVER_IP}
-ansible_user: root
+ansible_user: deploy
 ansible_become: yes
 ansible_ssh_private_key_file: ~/id_rsa_hetzner
 EOF
