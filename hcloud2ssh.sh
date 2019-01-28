@@ -8,7 +8,7 @@ do
     SERVER_IP=$(echo $LINE | awk '{print $2}')
 
     cat > ~/.ssh/config.d/hcloud_${SERVER_NAME} <<EOF
-Host ${SERVER_NAME}
+Host ${SERVER_NAME} ${SERVER_IP}
     HostName ${SERVER_IP}
     User root
     IdentityFile ~/id_rsa_hetzner
