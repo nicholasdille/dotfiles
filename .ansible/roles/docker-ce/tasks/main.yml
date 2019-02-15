@@ -15,7 +15,7 @@
     extra_opts: ['--strip-components=1']
 
 - name: Determine minor vesion
-  shell: curl --silent https://api.github.com/repos/docker/docker-ce/releases | jq --raw-output '.[] | select(.tag_name == "v18.09.2") | .target_commitish'
+  shell: curl --silent https://api.github.com/repos/docker/docker-ce/releases/tags/{{ latest }} | jq --raw-output '.[] | .target_commitish'
   register: minor
 
 - name: Install bash completion
