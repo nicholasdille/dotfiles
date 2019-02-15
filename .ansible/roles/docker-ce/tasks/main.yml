@@ -1,0 +1,25 @@
+---
+
+- name: Determine latest version
+  shell: curl --silent https://api.github.com/repos/docker/docker-ce/releases | jq --raw-output '.[] | .name' | sort --version-sort --reverse | head --lines=1
+  register: latest
+
+- debug:
+    msg: "Installing docker-ce {{ latest.stdout }}"
+
+- name: Download and install binaries
+  unarchive:
+    src: https://download.docker.com/linux/static/edge/x86_64/docker-{{ latest.stdout }}.tgz
+    dest: ~/.local/bin/
+    remote_src: yes
+    extra_opts: ['--strip-components=1']
+
+- name: Determine minor vesion
+  shell: curl --silent https://api.github.com/repos/docker/docker-ce/releases | jq --raw-output '.[] | select(.tag_name == "v18.09.2") | .target_commitish'
+  register: minor
+
+- name: Install bash completion
+  get_url:
+    url: https://github.com/docker/cli/raw/{{ minor }}/contrib/completion/bash/docker
+    dest: ~/.local/etc/.bash_completion.d/docker
+    mode: 0644

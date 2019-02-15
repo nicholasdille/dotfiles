@@ -1,0 +1,15 @@
+---
+
+- name: Determine latest version
+  uri:
+    url: https://api.github.com/repos/justjanne/powerline-go/releases/latest
+  register: powerline_go_latest
+
+- debug:
+    msg: "Installing powerline-go {{ powerline_go_latest.json.tag_name }}"
+
+- name: Download and install
+  get_url:
+    url: https://github.com/justjanne/powerline-go/releases/download/{{ powerline_go_latest.json.tag_name }}/powerline-go-linux-amd64
+    dest: ~/.local/bin/powerline-go
+    mode: 0755
