@@ -1,0 +1,53 @@
+---
+
+- name: Prepare system
+  hosts: localhost
+  tasks:
+
+    - name: Add repository for azure-cli
+      apt_repository:
+        repo: "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ {{ ansible_lsb.codename }} main"
+        filename: azure-cli.list
+      become: yes
+    
+    - name: Add Microsoft PGP key
+      apt_key:
+        keyserver: keyserver.ubuntu.com
+        id: BC528686B50D79E339D3721CEB3E94ADBE1229CF
+      become: yes
+    
+    - name: Add repository for Docker CE
+      apt_repository:
+        repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }} stable"
+        filename: docker.list
+      become: yes
+    
+    - name: Add Docker PGP key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+      become: yes
+    
+    - name: Add repository for PowerShell Core
+      apt:
+        deb: https://packages.microsoft.com/config/ubuntu/{{ ansible_lsb.release }}/packages-microsoft-prod.deb
+      become: yes
+    
+    - name: Install packages
+      apt:
+        name:
+          - lsb-release
+          - apt-transport-https
+          - ca-certificates
+          - software-properties-common
+          - unzip
+          - wget
+          - curl
+          - most
+          - pigz
+          - tree
+          - docker-ce
+          - powershell
+          - azure-cli
+          - awscli
+        update_cache: yes
+      become: yes
