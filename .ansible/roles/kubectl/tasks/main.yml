@@ -1,0 +1,28 @@
+---
+
+- name: Determine latest version
+  uri:
+    url: https://storage.googleapis.com/kubernetes-release/release/stable.txt
+    return_content: yes
+  register: latest
+
+- name: Extract version
+  set_fact:
+    kubectl_version: "{{ latest.content | regex_replace('\n', '') }}"
+
+- debug:
+    msg: "Installing kubectl {{ kubectl_version }}"
+
+- name: Download and install binaries
+  get_url:
+    url: https://storage.googleapis.com/kubernetes-release/release/{{ kubectl_version }}/bin/linux/amd64/kubectl
+    dest: ~/.local/bin/kubectl
+    mode: 0755
+
+- file:
+    path: ~/.local/etc/bash_completion.d
+    state: directory
+    mode: 0755
+
+- name: Install bash completion
+  shell: kubectl completion bash > ~/.local/etc/bash_completion.d/kubectl

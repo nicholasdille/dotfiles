@@ -1,0 +1,15 @@
+---
+
+- name: Determine latest version
+  uri:
+    url: https://api.github.com/repos/greymd/tmux-xpanes/releases/latest
+  register: latest
+
+- debug:
+    msg: "Installing tmux-xpanes {{ latest.json.tag_name }}"
+
+- name: Download and install
+  get_url:
+    url: "https://github.com/greymd/tmux-xpanes/raw/{{ latest.json.tag_name }}/bin/xpanes"
+    dest: ~/.local/bin/xpanes
+    mode: 0755

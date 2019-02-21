@@ -1,0 +1,28 @@
+---
+
+- name: Determine latest version
+  uri:
+    url: https://api.github.com/repos/github/hub/releases/latest
+  register: latest
+
+- debug:
+    msg: "Installing hub {{ latest.json.tag_name }}"
+
+- name: Determine matching artifact
+  shell: curl https://api.github.com/repos/github/hub/releases/15523345/assets | jq --raw-output '.[] | select(.browser_download_url | contains("hub-linux-amd64-")) | .browser_download_url'
+  register: asset
+
+- debug:
+    msg: "Using {{ asset.stdout }}"
+
+- name: Download and install
+  unarchive:
+    src: "{{ asset.stdout }}"
+    dest: ~/.local/
+    remote_src: yes
+    extra_opts:
+      - "--strip-components=1"
+      - "--wildcards hub-linux-amd64-{{ latest.json.tag_name }}/bin/* hub-linux-amd64-{{ latest.json.tag_name }}/share/* hub-linux-amd64-{{ latest.json.tag_name }}/etc/hub.bash_completion.sh"
+
+- name: Install bash completion
+  command: mv ~/.local/etc/hub.bash_completion.sh ~/.local/etc/bash_completion.d/hub

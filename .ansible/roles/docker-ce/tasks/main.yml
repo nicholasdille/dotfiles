@@ -14,12 +14,19 @@
     remote_src: yes
     extra_opts: ['--strip-components=1']
 
-- name: Determine minor vesion
-  shell: curl --silent https://api.github.com/repos/docker/docker-ce/releases/tags/{{ latest }} | jq --raw-output '.[] | .target_commitish'
+- name: Determine minor version
+  #shell: curl --silent https://api.github.com/repos/docker/docker-ce/releases/tags/{{ latest.stdout }} | jq --raw-output '.[] | .target_commitish'
+  shell: curl --silent https://api.github.com/repos/docker/docker-ce/releases/tags/{{ latest.stdout }}
   register: minor
+
+- debug:
+    var: minor
+
+- debug:
+    msg: "Using minor version {{ minor.stdout }} for docker-ce"
 
 - name: Install bash completion
   get_url:
-    url: https://github.com/docker/cli/raw/{{ minor }}/contrib/completion/bash/docker
-    dest: ~/.local/etc/.bash_completion.d/docker
+    url: https://github.com/docker/cli/raw/{{ minor.stdout }}/contrib/completion/bash/docker
+    dest: ~/.local/etc/bash_completion.d/docker
     mode: 0644
