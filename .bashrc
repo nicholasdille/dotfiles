@@ -60,6 +60,11 @@ if [ -d ~/.bash_completion.d ]; then
       [ -f "${FILE}" ] && . ${FILE}
     done
 fi
+if [ -d ~/.local/etc/bash_completion.d ]; then
+    for FILE in ~/.local/etc/bash_completion.d/* ; do
+      [ -f "${FILE}" ] && . ${FILE}
+    done
+fi
 
 # go to user home
 cd ~
