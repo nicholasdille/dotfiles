@@ -1,0 +1,18 @@
+---
+
+- name: Install prerequisites for dotfiles
+  hosts: localhost
+  gather_facts: no
+  roles:
+    #- jq
+    #- docker-ce
+    #- docker-compose
+    #- docker-machine
+    - rancher-cli
+    - docker-app
+    - docker-ls
+    - kubectl
+    - hub
+    - hcloud
+    - tmux-xpanes
+    - docker-machine-driver-hetzner
