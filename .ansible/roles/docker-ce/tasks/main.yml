@@ -1,32 +1,27 @@
 ---
 
 - name: Determine latest version
-  shell: curl --silent https://api.github.com/repos/docker/docker-ce/releases | jq --raw-output '.[] | .name' | sort --version-sort --reverse | head --lines=1
-  register: latest
+  shell: curl --silent https://api.github.com/repos/docker/docker-ce/releases | jq --raw-output 'sort_by(.name) | reverse | .[0]'
+  register: command
+
+- set_fact:
+    latest: "{{ command.stdout | from_json() }}"
 
 - debug:
-    msg: "Installing docker-ce {{ latest.stdout }}"
+    msg: "Installing docker-ce {{ latest.name }}"
 
 - name: Download and install binaries
   unarchive:
-    src: https://download.docker.com/linux/static/edge/x86_64/docker-{{ latest.stdout }}.tgz
+    src: https://download.docker.com/linux/static/edge/x86_64/docker-{{ latest.name}}.tgz
     dest: ~/.local/bin/
     remote_src: yes
     extra_opts: ['--strip-components=1']
 
-- name: Determine minor version
-  #shell: curl --silent https://api.github.com/repos/docker/docker-ce/releases/tags/{{ latest.stdout }} | jq --raw-output '.[] | .target_commitish'
-  shell: curl --silent https://api.github.com/repos/docker/docker-ce/releases/tags/{{ latest.stdout }}
-  register: minor
-
 - debug:
-    var: minor
-
-- debug:
-    msg: "Using minor version {{ minor.stdout }} for docker-ce"
+    msg: "Using minor version {{ latest.target_commitish }} for docker-ce"
 
 - name: Install bash completion
   get_url:
-    url: https://github.com/docker/cli/raw/{{ minor.stdout }}/contrib/completion/bash/docker
+    url: https://github.com/docker/cli/raw/{{ latest.target_commitish }}/contrib/completion/bash/docker
     dest: ~/.local/etc/bash_completion.d/docker
     mode: 0644
