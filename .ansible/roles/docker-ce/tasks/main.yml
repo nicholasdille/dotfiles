@@ -20,6 +20,11 @@
 - debug:
     msg: "Using minor version {{ latest.target_commitish }} for docker-ce"
 
+- file:
+    path: ~/.local/etc/bash_completion.d
+    state: directory
+    mode: 0755
+
 - name: Install bash completion
   get_url:
     url: https://github.com/docker/cli/raw/{{ latest.target_commitish }}/contrib/completion/bash/docker

@@ -11,11 +11,15 @@
 - name: Download and install
   unarchive:
     src: https://github.com/hetznercloud/cli/releases/download/{{ latest.json.tag_name }}/hcloud-linux-amd64-{{ latest.json.tag_name }}.tar.gz
-    dest: ~/.local/bin/
+    dest: ~/.local/
     remote_src: yes
     extra_opts:
-      - "--strip-components=1"
-      - "--wildcards hcloud-linux-amd64-{{ latest.json.tag_name }}/bin/* hcloud-linux-amd64-{{ latest.json.tag_name }}/etc/hcloud.bash_completion.sh"
+      - --strip-components=1
+
+- file:
+    path: ~/.local/etc/bash_completion.d
+    state: directory
+    mode: 0755
 
 - name: Install bash completion
   command: mv ~/.local/etc/hcloud.bash_completion.sh ~/.local/etc/bash_completion.d/hcloud
