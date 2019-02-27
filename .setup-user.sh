@@ -141,3 +141,34 @@ if ! type xpanes 2>/dev/null; then
     chmod +x ${TARGET}/xpanes
     echo - Done.
 fi
+
+# kube-shell
+#pip install kube-shell
+
+# dive
+#curl -sLf https://github.com/wagoodman/dive/releases/download/v0.6.0/dive_0.6.0_linux_amd64.tar.gz | tar -xvzC ~/.local/bin/ dive
+
+# kubebox
+#curl -sLf https://github.com/astefanutti/kubebox/releases/download/v0.4.0/kubebox-linux > ~/.local/bin/kubebox && chmod +x ~/.local/bin/kubebox
+
+# k9s
+#curl -sL https://github.com/derailed/k9s/releases/download/0.1.9/k9s_0.1.9_Linux_x86_64.tar.gz | tar -xvzC ~/.local/bin/ k9s
+
+# dockly
+#sudo apt install nodejs npm
+#npm install dockly
+
+# kubectx/kubens
+#curl -sL https://github.com/ahmetb/kubectx/archive/v0.6.3.tar.gz | tar -xvz --strip-components=1 --wildcards kubectx-*/kubectx kubectx-*/kubens kubectx-*/completion/kubectx.bash kubectx-*/completion/kubens.bash && mv kubectx kubens ~/.local/bin/ && mv completion/*.bash ~/.local/etc/bash_completion.d/ && rmdir completion
+
+# skopeo (local)
+#sudo apt install golang libgpgme-dev libassuan-dev btrfs-progs libdevmapper-dev libostree-dev
+#git clone https://github.com/containers/skopeo $GOPATH/src/github.com/containers/skopeo
+#cd $GOPATH/src/github.com/containers/skopeo
+#make binary-local
+
+# skopeo (docker)
+#make binary
+
+# go-task
+#curl -sL https://github.com/go-task/task/releases/download/v2.4.0/task_linux_amd64.tar.gz | tar -xvzC ~/.local/bin/ task
