@@ -90,3 +90,6 @@ if test -x ~/.local/bin/powerline-go; then
 fi
 
 export GOPATH=$HOME/go
+
+alias k=kubectl
+complete -F __start_kubectl k
