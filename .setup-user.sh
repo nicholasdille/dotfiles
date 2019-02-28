@@ -172,3 +172,9 @@ fi
 
 # go-task
 #curl -sL https://github.com/go-task/task/releases/download/v2.4.0/task_linux_amd64.tar.gz | tar -xvzC ~/.local/bin/ task
+
+# k8sec
+#curl -sL https://github.com/dtan4/k8sec/releases/download/v0.5.1/k8sec-v0.5.1-linux-amd64.tar.gz | tar -xvzC ~/.local/bin/ --strip-components=1 linux-amd64/k8sec
+
+# rakkess
+#curl -sL https://github.com/corneliusweig/rakkess/releases/download/v0.1.1/rakkess-linux-amd64.gz | gunzip > ~/.local/bin/rakkess && chmod +x ~/.local/bin/rakkess
