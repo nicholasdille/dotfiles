@@ -177,4 +177,4 @@ fi
 #curl -sL https://github.com/dtan4/k8sec/releases/download/v0.5.1/k8sec-v0.5.1-linux-amd64.tar.gz | tar -xvzC ~/.local/bin/ --strip-components=1 linux-amd64/k8sec
 
 # rakkess
-#curl -sL https://github.com/corneliusweig/rakkess/releases/download/v0.1.1/rakkess-linux-amd64.gz | gunzip > ~/.local/bin/rakkess && chmod +x ~/.local/bin/rakkess
+#curl -sL https://github.com/corneliusweig/rakkess/releases/download/v0.1.1/rakkess-linux-amd64.gz | gunzip > ~/.local/bin/rakkess && chmod +x ~/.local/bin/rakkess && rakkess completion bash > ~/.local/etc/bash_completion.d/rakkess
