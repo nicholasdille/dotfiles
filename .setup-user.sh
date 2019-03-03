@@ -181,3 +181,6 @@ fi
 
 # umoci
 #curl -sL https://github.com/openSUSE/umoci/releases/download/v0.4.4/umoci.amd64 >~/.local/bin/umoci && chmod +x ~/.local/bin/umoci
+
+# img
+#curl -sL https://github.com/genuinetools/img/releases/download/v0.5.6/img-linux-amd64 >~/.local/bin/img && chmod +x ~/.local/bin/img

@@ -37,3 +37,6 @@ sudo apt-get -y install \
 curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
 sudo dpkg -i keybase_amd64.deb
 sudo apt-get install -f
+
+#sudo add-apt-repository -y ppa:projectatomic/ppa
+#sudo apt-get -y install podman buildah
