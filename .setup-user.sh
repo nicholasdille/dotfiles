@@ -178,3 +178,6 @@ fi
 
 # rakkess
 #curl -sL https://github.com/corneliusweig/rakkess/releases/download/v0.1.1/rakkess-linux-amd64.gz | gunzip > ~/.local/bin/rakkess && chmod +x ~/.local/bin/rakkess && rakkess completion bash > ~/.local/etc/bash_completion.d/rakkess
+
+# umoci
+#curl -sL https://github.com/openSUSE/umoci/releases/download/v0.4.4/umoci.amd64 >~/.local/bin/umoci && chmod +x ~/.local/bin/umoci
