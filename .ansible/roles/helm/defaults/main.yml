@@ -1,0 +1,5 @@
+---
+
+plugins:
+  - https://github.com/rimusz/helm-tiller
+  - https://github.com/adamreese/helm-local

@@ -25,6 +25,4 @@
   command: "helm plugin install {{ item }}"
   args:
     creates: ~/.helm/cache/plugins/{{ item | regex_replace('/', '-') }}/
-  with_items:
-    - https://github.com/rimusz/helm-tiller
-    - https://github.com/adamreese/helm-local
+  with_items: "{{ plugins }}"
