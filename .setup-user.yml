@@ -16,3 +16,4 @@
     - hcloud
     - tmux-xpanes
     - docker-machine-driver-hetzner
+    - helm
