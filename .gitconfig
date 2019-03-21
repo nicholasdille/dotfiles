@@ -2,5 +2,11 @@
 	default = simple
 [credential]
 	helper = store
-[include]
-    path = .gitconfig-local
+[user]
+        name = Nicholas Dille
+[includeif "gitdir:**/.cfg"]
+    path = .gitconfig-private
+[includeif "gitdir:**/haufe/**"]
+    path = .gitconfig-haufe
+[includeif "gitdir:**/private/**"]
+    path = .gitconfig-private
