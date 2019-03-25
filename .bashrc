@@ -92,5 +92,7 @@ fi
 export GOPATH=$HOME/go
 PATH=$GOPATH/bin:$PATH
 
+export GPG_TTY=$(tty)
+
 alias k=kubectl
 complete -F __start_kubectl k
