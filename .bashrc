@@ -93,6 +93,11 @@ export GOPATH=$HOME/go
 PATH=$GOPATH/bin:$PATH
 
 export GPG_TTY=$(tty)
+if [ -f "${HOME}/.gnupg/S.gpg-agent.ssh" ]; then
+    export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
+else
+    eval $(gpg-agent --daemon)
+fi
 
 alias k=kubectl
 complete -F __start_kubectl k
