@@ -184,3 +184,6 @@ fi
 
 # img
 #curl -sL https://github.com/genuinetools/img/releases/download/v0.5.6/img-linux-amd64 >~/.local/bin/img && chmod +x ~/.local/bin/img
+
+# minikube
+#curl -sL https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 > ~/.local/bin/minikube && chmod +x ~/.local/bin/minikube
