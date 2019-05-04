@@ -66,9 +66,6 @@ if [ -d ~/.local/etc/bash_completion.d ]; then
     done
 fi
 
-# go to user home
-cd ~
-
 # tools
 if type most >/dev/null; then
     export PAGER=most
@@ -89,8 +86,9 @@ if test -x ~/.local/bin/powerline-go; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
+export GOROOT=/usr/lib/go-1.11
 export GOPATH=$HOME/go
-PATH=$GOPATH/bin:$PATH
+PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 export GPG_TTY=$(tty)
 if [ -f "${HOME}/.gnupg/S.gpg-agent.ssh" ]; then
