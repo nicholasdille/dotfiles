@@ -187,3 +187,6 @@ fi
 
 # minikube
 #curl -sL https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 > ~/.local/bin/minikube && chmod +x ~/.local/bin/minikube
+
+# lazygit
+#curl -sLf https://github.com/jesseduffield/lazygit/releases/download/v0.7.2/lazygit_0.7.2_Linux_x86_64.tar.gz | tar -xvz -C ~/.local/bin/ lazygit
