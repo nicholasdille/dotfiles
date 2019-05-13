@@ -74,6 +74,7 @@ if type vim >/dev/null; then
     export EDITOR=vim
 fi
 
+# configure tmux
 if ! tmux display 2>/dev/null; then
     exec tmux
 fi
@@ -105,6 +106,7 @@ fi
 export GOPATH=$HOME/go
 PATH=$GOPATH/bin:$PATH
 
+# configure GnuPG
 export GPG_TTY=$(tty)
 if [ -f "${HOME}/.gnupg/S.gpg-agent.ssh" ]; then
     export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
@@ -112,5 +114,6 @@ else
     eval $(gpg-agent --daemon)
 fi
 
+# aliases
 alias k=kubectl
 complete -F __start_kubectl k
