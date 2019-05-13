@@ -86,9 +86,24 @@ if test -x ~/.local/bin/powerline-go; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
-export GOROOT=/usr/lib/go-1.11
+# configure golang
+GOROOT=~/.local/go
+if [[ -f $GOROOT/bin/go ]] && [[ -x $GOROOT/bin/go ]]; then
+    export GOROOT=~/.local/go
+    PATH=$GOROOT/bin:$PATH
+
+else
+    GOROOT=$(ls -d /usr/lib/go-* | sort -n | tail -n 1)
+    if [[ -f $GOROOT/bin/go ]] && [[ -x $GOROOT/bin/go ]]; then
+        export GOROOT
+        PATH=$GOROOT/bin:$PATH
+
+    else
+        unset GOROOT
+    fi
+fi
 export GOPATH=$HOME/go
-PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+PATH=$GOPATH/bin:$PATH
 
 export GPG_TTY=$(tty)
 if [ -f "${HOME}/.gnupg/S.gpg-agent.ssh" ]; then
