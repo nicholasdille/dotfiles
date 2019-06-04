@@ -20,7 +20,7 @@ fi
 
 # Creating SSH config
 cat >~/.ssh/config.d/docker-hcloud <<EOF
-Host ${HCLOUD_VM_IP}
+Host docker-hcloud ${HCLOUD_VM_IP}
     HostName ${HCLOUD_VM_IP}
     User root
     IdentityFile ~/id_rsa_hetzner
@@ -31,5 +31,5 @@ chmod 0600 ~/.ssh/config.d/docker-hcloud
 
 # Wait for dockerd
 echo Waiting for dockerd...
-timeout 300 bash -c "while test -z '$(ssh ${HCLOUD_VM_IP} ps -C dockerd --no-headers)'; do sleep 2; done"
-export DOCKER_HOST=ssh://${HCLOUD_VM_IP}
+timeout 300 bash -c "while ! ssh docker-hcloud ps -C dockerd >/dev/null; do sleep 2; done"
+export DOCKER_HOST=ssh://docker-hcloud
