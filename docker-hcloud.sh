@@ -20,7 +20,7 @@ fi
 
 # Creating SSH config
 cat >~/.ssh/config.d/docker-hcloud <<EOF
-Host ${HCLOUD_VM_IP} docker-hcloud
+Host docker-hcloud ${HCLOUD_VM_IP}
     HostName ${HCLOUD_VM_IP}
     User root
     IdentityFile ~/id_rsa_hetzner
