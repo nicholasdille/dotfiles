@@ -190,3 +190,9 @@ fi
 
 # lazygit
 #curl -sLf https://github.com/jesseduffield/lazygit/releases/download/v0.7.2/lazygit_0.7.2_Linux_x86_64.tar.gz | tar -xvz -C ~/.local/bin/ lazygit
+
+# k3s
+
+# k3d
+
+# kind
