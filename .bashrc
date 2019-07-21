@@ -100,10 +100,10 @@ else
     export PROMPT_COMMAND='__git_ps1 "\[\033[0;36m\]\u\[\033[0;35;40m\]@\h\033[0;37;0m\] \[\033[1;33m\]\W\033[0;37;0m\] [\j]" " \\\$ "'
 fi
 
-if ! test -f ~/.tmux/kube-tmux/kube.tmux; then
+if ! test -f ~/.local/etc/kube-tmux.sh; then
     mkdir -p ~/.tmux/kube-tmux
-    curl -sLo ~/.tmux/kube-tmux/kube.tmux https://raw.githubusercontent.com/jonmosco/kube-tmux/master/kube.tmux
-    patch ~/.tmux/kube-tmux/kube.tmux < ~/.tmux/kube-tmux/kube.tmux.patch
+    curl -sLo ~/.local/etc/kube-tmux.sh https://raw.githubusercontent.com/jonmosco/kube-tmux/master/kube.tmux
+    patch ~/.local/etc/kube-tmux.sh < ~/.local/etc/kube-tmux.sh.patch
 fi
 
 # configure golang
