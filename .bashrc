@@ -97,7 +97,7 @@ else
     export GIT_PS1_SHOWDIRTYSTATE=true
     export GIT_PS1_SHOWUNTRACKEDFILES=true
     export GIT_PS1_SHOWUPSTREAM="auto"
-    export PROMPT_COMMAND='__git_ps1 "\w" "\\\$ "'
+    export PROMPT_COMMAND='__git_ps1 "\u@\h \[\033[1;33m\]\W" "\\\$ "'
 fi
 
 # configure golang
