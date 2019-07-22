@@ -196,3 +196,8 @@ fi
 # k3d
 
 # kind
+
+# flarectl
+#https://github.com/cloudflare/cloudflare-go
+#cd cmd/flarectl
+#go build -v .
