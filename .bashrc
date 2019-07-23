@@ -97,7 +97,7 @@ else
     export GIT_PS1_SHOWDIRTYSTATE=true
     export GIT_PS1_SHOWUNTRACKEDFILES=true
     export GIT_PS1_SHOWUPSTREAM="auto"
-    export PROMPT_COMMAND='__git_ps1 "\[\033[0;36m\]\u\[\033[0;35;40m\]@\h\033[0;37;0m\] \[\033[1;33m\]\W\033[0;37;0m\] [\j]" " \\\$ "'
+    export PROMPT_COMMAND='__git_ps1 "\[\033[0;36m\]\u\[\033[0;35;40m\]@\h\[\033[0;37;0m\] \[\033[1;33m\]\W\[\033[0;37;0m\] [\j]" " \\\$ "'
 fi
 
 if ! test -f ~/.local/etc/kube-tmux.sh; then
