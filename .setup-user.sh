@@ -34,7 +34,7 @@ fi
 if ! type docker-compose 2>/dev/null; then
     echo
     echo Installing docker-compose
-    DOCKER_COMPOSE_VERSION=1.23.1
+    DOCKER_COMPOSE_VERSION=1.24.1
     echo - Version: ${DOCKER_COMPOSE_VERSION}
     wget -O ${TARGET}/docker-compose https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-Linux-x86_64
     chmod +x ${TARGET}/docker-compose
@@ -46,7 +46,7 @@ fi
 if ! type docker-machine 2>/dev/null; then
     echo
     echo Installing docker-machine
-    DOCKER_MACHINE_VERSION=0.16.0
+    DOCKER_MACHINE_VERSION=0.16.1
     echo - Version: ${DOCKER_MACHINE_VERSION}
     wget -O ${TARGET}/docker-machine https://github.com/docker/machine/releases/download/v${DOCKER_MACHINE_VERSION}/docker-machine-Linux-x86_64
     chmod +x ${TARGET}/docker-machine
@@ -91,7 +91,7 @@ fi
 if ! type kubectl 2>/dev/null; then
     echo
     echo Installing kubectl
-    KUBECTL_VERSION=1.12.2
+    KUBECTL_VERSION=1.15.1
     echo - Version: ${KUBECTL_VERSION}
     wget -O ${TARGET}/kubectl https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl
     chmod +x ${TARGET}/kubectl
@@ -103,7 +103,7 @@ fi
 if ! type hub 2>/dev/null; then
     echo
     echo Installing hub
-    HUB_VERSION=2.6.0
+    HUB_VERSION=2.12.3
     echo - Version: ${HUB_VERSION}
     curl -sL https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.tgz | tar -xz -C ~/.local --strip-components=1 --wildcards hub-linux-amd64-${HUB_VERSION}/bin/* hub-linux-amd64-${HUB_VERSION}/share/* hub-linux-amd64-${HUB_VERSION}/etc/hub.bash_completion.sh
     mv ~/.local/etc/hub.bash_completion.sh ~/.bash_completion.d/hub
@@ -114,7 +114,7 @@ fi
 if ! type hcloud 2>/dev/null; then
     echo
     echo Installing hcloud
-    HCLOUD_VERSION=1.10.0
+    HCLOUD_VERSION=1.13.0
     echo - Version: ${HCLOUD_VERSION}
     curl -sL https://github.com/hetznercloud/cli/releases/download/v${HCLOUD_VERSION}/hcloud-linux-amd64-v${HCLOUD_VERSION}.tar.gz | tar -xz -C ~/.local --strip-components=1 --wildcards hcloud-linux-amd64-v${HCLOUD_VERSION}/bin/* hcloud-linux-amd64-v${HCLOUD_VERSION}/etc/hcloud.bash_completion.sh
     mv ~/.local/etc/hcloud.bash_completion.sh ~/.bash_completion.d/hcloud
@@ -125,7 +125,7 @@ fi
 if ! type docker-machine-driver-hetzner 2>/dev/null; then
     echo
     echo Installing docker-machine-driver-hetzner
-    DOCKER_MACHINE_DRIVER_HETZNER_VERSION=1.2.2
+    DOCKER_MACHINE_DRIVER_HETZNER_VERSION=2.0.1
     echo - Version: ${DOCKER_MACHINE_DRIVER_HETZNER_VERSION}
     curl -sL https://github.com/JonasProgrammer/docker-machine-driver-hetzner/releases/download/${DOCKER_MACHINE_DRIVER_HETZNER_VERSION}/docker-machine-driver-hetzner_${DOCKER_MACHINE_DRIVER_HETZNER_VERSION}_linux_amd64.tar.gz | tar -xz -C ${TARGET}
     echo - Done.
@@ -135,7 +135,7 @@ fi
 if ! type xpanes 2>/dev/null; then
     echo
     echo Installing tmux-xpanes
-    TMUX_XPANES_VERSION=3.1.0
+    TMUX_XPANES_VERSION=4.1.1
     echo - Version: ${TMUX_XPANES_VERSION}
     curl -sL https://github.com/greymd/tmux-xpanes/raw/v${TMUX_XPANES_VERSION}/bin/xpanes > ${TARGET}/xpanes
     chmod +x ${TARGET}/xpanes
@@ -201,3 +201,19 @@ fi
 #https://github.com/cloudflare/cloudflare-go
 #cd cmd/flarectl
 #go build -v .
+if ! type flarectl 2>/dev/null; then
+    if docker version >/dev/null 2>&1; then
+        echo
+        echo Installing flarectl
+        docker run -i --name go golang:1.12 bash <<EOF
+go get github.com/cloudflare/cloudflare-go
+cd /go/src/github.com/cloudflare/cloudflare-go/cmd/flarectl
+go build -v .
+EOF
+        docker cp go:/go/src/github.com/cloudflare/cloudflare-go/cmd/flarectl/flarectl ~/.local/bin/
+        docker rm go
+        echo - Done.
+    else
+        echo Docker not working.
+    fi
+fi
