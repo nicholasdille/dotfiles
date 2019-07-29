@@ -40,7 +40,7 @@ if ps x | grep ssh | grep "/var/run/docker.sock" | grep --quiet ${HCLOUD_VM_IP};
     echo SSH remoting for Docker socket already established
 else
     echo Creating SSH remoting for Docker socket
-    rm $HOME/.docker.sock
+    rm -f $HOME/.docker.sock
     ssh -fNL $HOME/.docker.sock:/var/run/docker.sock ${HCLOUD_VM_IP}
 fi
 export DOCKER_HOST=unix://$HOME/.docker.sock
