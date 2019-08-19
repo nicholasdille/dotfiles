@@ -198,9 +198,6 @@ fi
 # kind
 
 # flarectl
-#https://github.com/cloudflare/cloudflare-go
-#cd cmd/flarectl
-#go build -v .
 if ! type flarectl 2>/dev/null; then
     if docker version >/dev/null 2>&1; then
         echo
@@ -216,4 +213,13 @@ EOF
     else
         echo Docker not working.
     fi
+fi
+
+# lectl
+if ! type lectl 2>/dev/null; then
+    echo
+    echo Installing lectl
+    curl -sL https://github.com/sahsanu/lectl/raw/master/lectl > ${TARGET}/lectl
+    chmod +x ${TARGET}/lectl
+    echo - Done.
 fi
