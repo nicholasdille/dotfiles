@@ -134,5 +134,6 @@ else
 fi
 
 # aliases
+export KUBECONFIG=~/.kube/config:$(ls ~/.kube/kubeconfig.* | tr '\n' ':')
 alias k=kubectl
 complete -F __start_kubectl k
