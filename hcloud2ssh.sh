@@ -7,6 +7,8 @@ do
     SERVER_NAME=$(echo $LINE | awk '{print $1}')
     SERVER_IP=$(echo $LINE | awk '{print $2}')
 
+    echo "Adding SSH configuration for <${SERVER_NAME}> at <${SERVER_IP}>"
+
     cat > ~/.ssh/config.d/hcloud_${SERVER_NAME} <<EOF
 Host ${SERVER_NAME} ${SERVER_IP}
     HostName ${SERVER_IP}
