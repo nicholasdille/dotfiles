@@ -6,7 +6,7 @@ if [[ "$#" == 1 ]]; then
 fi
 if [[ -z "${CLUSTER}" ]]; then
     CONTEXT=$(kubectl config current-context)
-    CLUSTER=$(kubectl config get-contexts svc-2-admin | tail -n +2 | tr -s ' ' | cut -d' ' -f3)
+    CLUSTER=$(kubectl config get-contexts ${CONTEXT} | tail -n +2 | tr -s ' ' | cut -d' ' -f3)
 fi
 if [[ -z "${CLUSTER}" ]]; then
     echo Unable to determine cluster name
