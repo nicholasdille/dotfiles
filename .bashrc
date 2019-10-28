@@ -113,7 +113,7 @@ if [[ -f $GOROOT/bin/go ]] && [[ -x $GOROOT/bin/go ]]; then
     PATH=$GOROOT/bin:$PATH
 
 else
-    GOROOT=$(ls -d /usr/lib/go-* | sort -n | tail -n 1)
+    GOROOT=$(ls -d /usr/lib/go-* 2>/dev/null | sort -n | tail -n 1)
     if [[ -f $GOROOT/bin/go ]] && [[ -x $GOROOT/bin/go ]]; then
         export GOROOT
         PATH=$GOROOT/bin:$PATH
@@ -134,6 +134,6 @@ else
 fi
 
 # aliases
-export KUBECONFIG=~/.kube/config:$(ls ~/.kube/kubeconfig.* | tr '\n' ':')
+export KUBECONFIG=~/.kube/config:$(ls ~/.kube/kubeconfig.* 2>/dev/null | tr '\n' ':')
 alias k=kubectl
 complete -F __start_kubectl k
