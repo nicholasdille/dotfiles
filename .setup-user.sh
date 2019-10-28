@@ -159,7 +159,14 @@ fi
 #npm install dockly
 
 # kubectx/kubens
-#curl -sL https://github.com/ahmetb/kubectx/archive/v0.6.3.tar.gz | tar -xvz --strip-components=1 --wildcards kubectx-*/kubectx kubectx-*/kubens kubectx-*/completion/kubectx.bash kubectx-*/completion/kubens.bash && mv kubectx kubens ~/.local/bin/ && mv completion/*.bash ~/.local/etc/bash_completion.d/ && rmdir completion
+if ! type kubectx 2>/dev/null; then
+    echo
+    echo Installing kubectx/kubens
+    KUBECTXNS_VERSION=0.7.0
+    echo - Version: ${KUBECTXNS_VERSION}
+    curl -sL https://github.com/ahmetb/kubectx/archive/v${KUBECTXNS_VERSION}.tar.gz | tar -xvz --strip-components=1 --wildcards kubectx-*/kubectx kubectx-*/kubens kubectx-*/completion/kubectx.bash kubectx-*/completion/kubens.bash && mv kubectx kubens ~/.local/bin/ && mv completion/*.bash ~/.local/etc/bash_completion.d/ && rmdir completion
+    echo - Done.
+fi
 
 # skopeo (local)
 #sudo apt install golang libgpgme-dev libassuan-dev btrfs-progs libdevmapper-dev libostree-dev
@@ -194,6 +201,8 @@ fi
 # k3s
 
 # k3d
+
+# k3sup
 
 # kind
 
