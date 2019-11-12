@@ -130,7 +130,7 @@ export GPG_TTY=$(tty)
 if [ -f "${HOME}/.gnupg/S.gpg-agent.ssh" ]; then
     export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
 else
-    eval $(gpg-agent --daemon)
+    eval $(gpg-agent --daemon 2>/dev/null)
 fi
 
 # aliases
