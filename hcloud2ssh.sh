@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+SSH_KEY_FILE=~/id_rsa_hetzner
+if [[ -n "$1" ]]; then
+    SSH_KEY_FILE=$1
+fi
+
 rm -f ~/.ssh/config.d/hcloud_*
 hcloud server list -o columns=name,ipv4 | tail -n +2 | while read LINE
 do
@@ -13,7 +18,7 @@ do
 Host ${SERVER_NAME} ${SERVER_IP}
     HostName ${SERVER_IP}
     User root
-    IdentityFile ~/id_rsa_hetzner
+    IdentityFile ${SSH_KEY_FILE}
     StrictHostKeyChecking no
     UserKnownHostsFile /dev/null
 EOF

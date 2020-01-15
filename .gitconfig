@@ -10,3 +10,5 @@
     path = .gitconfig-haufe
 [includeif "gitdir:**/private/**"]
     path = .gitconfig-private
+[includeif "gitdir:**/johnic/**"]
+    path = .gitconfig-johnic
