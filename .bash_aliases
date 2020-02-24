@@ -3,6 +3,7 @@ alias gd="git diff"
 alias ga="git add"
 alias gaa="git add --all"
 alias gc="git commit -m"
+alias gac="git add --all && git commit -m"
 alias gpsh="git push"
 alias gpll="git pull"
 

@@ -33,14 +33,7 @@ chmod 0600 ~/.ssh/config.d/docker-hcloud
 echo Waiting for dockerd...
 timeout 300 bash -c "while test -z \"\$(ssh ${HCLOUD_VM_IP} ps -C dockerd --no-headers)\"; do sleep 5; done"
 
-# Connect Docker socket
-#SID=$(ps -p $$ -o sid --no-header | tr -d ' ')
-#if ps fx -g${SID} -o pid,ppid,sid,comm | grep ssh | grep "/var/run/docker.sock" | grep ${HCLOUD_VM_IP}; then
-if ps x | grep ssh | grep "/var/run/docker.sock" | grep --quiet ${HCLOUD_VM_IP}; then
-    echo SSH remoting for Docker socket already established
-else
-    echo Creating SSH remoting for Docker socket
-    rm -f $HOME/.docker.sock
-    ssh -fNL $HOME/.docker.sock:/var/run/docker.sock ${HCLOUD_VM_IP}
-fi
-export DOCKER_HOST=unix://$HOME/.docker.sock
+# Configuring docker
+docker context ls -q | grep docker-hcloud | xargs -r docker context rm -f
+docker context create docker-hcloud --docker "host=ssh://${HCLOUD_VM_IP}"
+docker context use docker-hcloud
