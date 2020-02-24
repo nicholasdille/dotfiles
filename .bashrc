@@ -75,8 +75,9 @@ if type vim >/dev/null; then
 fi
 
 # configure tmux
-if ! tmux display 2>/dev/null; then
-    exec tmux
+if [[ -z "${TMUX}" ]]; then
+    tmux ls | grep -vq attached && TMUXARG="attach-session -d"
+    exec tmux -2 $TMUXARG
 fi
 
 # add beatiful prompt (powerline-go)
