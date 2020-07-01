@@ -83,7 +83,7 @@ fi
 # add beatiful prompt (powerline-go)
 if test -x ~/.local/bin/powerline-go; then
     function _update_ps1() {
-        PS1="$(~/.local/bin/powerline-go -error $? -modules exit,user,cwd,git,jobs -newline)"
+        PS1="$(~/.local/bin/powerline-go -theme ${HOME}/.local/etc/powerline-go-theme.json -error $? -modules exit,user,cwd,git,docker-context,kube,jobs -newline)"
     }
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 else
@@ -110,12 +110,14 @@ fi
 # configure golang
 GOROOT=~/.local/go
 if [[ -f $GOROOT/bin/go ]] && [[ -x $GOROOT/bin/go ]]; then
+    echo Found go in ~/.local/go
     export GOROOT=~/.local/go
     PATH=$GOROOT/bin:$PATH
 
 else
     GOROOT=$(ls -d /usr/lib/go-* 2>/dev/null | sort -n | tail -n 1)
     if [[ -f $GOROOT/bin/go ]] && [[ -x $GOROOT/bin/go ]]; then
+        echo Found go in /usr/lib/go
         export GOROOT
         PATH=$GOROOT/bin:$PATH
 
@@ -125,7 +127,7 @@ else
 fi
 export GOPATH=$HOME/go
 mkdir -p ${GOPATH}
-PATH=$GOPATH/bin:$PATH
+PATH=$GOPATH/bin:${HOME}/.krew/bin:$PATH
 
 # configure GnuPG
 export GPG_TTY=$(tty)
