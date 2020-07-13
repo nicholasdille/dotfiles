@@ -75,7 +75,7 @@ if type vim >/dev/null; then
 fi
 
 # configure tmux
-if [[ -z "${TMUX}" ]]; then
+if [[ -z "${TMUX}" && "${TERM_PROGRAM}" != "vscode" ]]; then
     tmux ls | grep -vq attached && TMUXARG="attach-session -d"
     exec tmux -2 $TMUXARG
 fi
@@ -101,6 +101,11 @@ else
     export PROMPT_COMMAND='__git_ps1 "\[\033[0;36m\]\u\[\033[0;35;40m\]@\h\[\033[0;37;0m\] \[\033[1;33m\]\W\[\033[0;37;0m\] [\j]" " \\\$ "'
 fi
 
+if [[ "${TERM_PROGRAM}" == "vscode" ]]; then
+    PS1="\$ "
+    unset PROMPT_COMMAND
+fi
+
 if ! test -f ~/.local/etc/kube-tmux.sh; then
     mkdir -p ~/.tmux/kube-tmux
     curl -sLo ~/.local/etc/kube-tmux.sh https://raw.githubusercontent.com/jonmosco/kube-tmux/master/kube.tmux
@@ -110,14 +115,12 @@ fi
 # configure golang
 GOROOT=~/.local/go
 if [[ -f $GOROOT/bin/go ]] && [[ -x $GOROOT/bin/go ]]; then
-    echo Found go in ~/.local/go
     export GOROOT=~/.local/go
     PATH=$GOROOT/bin:$PATH
 
 else
     GOROOT=$(ls -d /usr/lib/go-* 2>/dev/null | sort -n | tail -n 1)
     if [[ -f $GOROOT/bin/go ]] && [[ -x $GOROOT/bin/go ]]; then
-        echo Found go in /usr/lib/go
         export GOROOT
         PATH=$GOROOT/bin:$PATH
 
@@ -136,6 +139,20 @@ if [ -f "${HOME}/.gnupg/S.gpg-agent.ssh" ]; then
 else
     eval $(gpg-agent --daemon 2>/dev/null)
 fi
+
+# configure homebrew
+eval $(/home/nicholas/.linuxbrew/bin/brew shellenv)
+if type brew &>/dev/null; then
+    HOMEBREW_PREFIX="$(brew --prefix)"
+    if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+	source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+    else
+	for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+	    [[ -r "$COMPLETION" ]] && source "$COMPLETION"
+	done
+    fi
+fi
+
 
 # aliases
 export KUBECONFIG=~/.kube/config:$(ls ~/.kube/kubeconfig.* 2>/dev/null | tr '\n' ':')
