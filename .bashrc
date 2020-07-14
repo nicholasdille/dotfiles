@@ -54,6 +54,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+PATH="${PATH:+${PATH}:}${HOME}/.local/bin"
+
 # enable custom bash completion
 if [ -d ~/.bash_completion.d ]; then
     for FILE in ~/.bash_completion.d/* ; do
@@ -152,7 +154,6 @@ if type brew &>/dev/null; then
 	done
     fi
 fi
-
 
 # aliases
 export KUBECONFIG=~/.kube/config:$(ls ~/.kube/kubeconfig.* 2>/dev/null | tr '\n' ':')
