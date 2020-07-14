@@ -1,8 +1,9 @@
 #!/bin/bash
 
-curl -fL https://get.docker.com | sh
+apt-get update
+apt-get -y install bash curl jq make
 
-apt-get -y install curl jq make
+curl -fL https://get.docker.com | sh
 
 # kubectl
 curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt | \

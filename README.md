@@ -21,15 +21,7 @@ bash ~/.setup-minimal.sh
 
 ## Windows Subsystem for Linux (WSL)
 
-For pretty prompts (based on powerline) you need to install a proper terminal emulator for WSL like [wsltty](https://github.com/mintty/wsltty) and install fonts:
-
-```powershell
-git clone https://github.com/powerline/fonts.git $env:Temp\fonts
-cd $env:Temp\fonts
-.\install.ps1
-```
-
-After the first start of `wsltty`, configure a font and optionally choose a theme.
+For pretty prompts (based on powerline) you need to install a proper terminal emulator and fonts. I recommend the [Windows Terminal](https://github.com/microsoft/terminal/releases) with [Cascadia Code](https://github.com/microsoft/cascadia-code).
 
 ### SSH agent on WSL
 

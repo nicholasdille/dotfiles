@@ -75,7 +75,7 @@ if type vim >/dev/null; then
 fi
 
 # configure tmux
-if [[ -z "${TMUX}" ]]; then
+if [[ -z "${TMUX}" && "${TERM_PROGRAM}" != "vscode" ]]; then
     tmux ls | grep -vq attached && TMUXARG="attach-session -d"
     exec tmux -2 $TMUXARG
 fi
@@ -83,7 +83,7 @@ fi
 # add beatiful prompt (powerline-go)
 if test -x ~/.local/bin/powerline-go; then
     function _update_ps1() {
-        PS1="$(~/.local/bin/powerline-go -error $? -modules exit,user,cwd,git,jobs -newline)"
+        PS1="$(~/.local/bin/powerline-go -theme ${HOME}/.local/etc/powerline-go-theme.json -error $? -modules exit,user,cwd,git,docker-context,kube,jobs -newline)"
     }
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 else
@@ -99,6 +99,11 @@ else
     export GIT_PS1_SHOWUNTRACKEDFILES=true
     export GIT_PS1_SHOWUPSTREAM="auto"
     export PROMPT_COMMAND='__git_ps1 "\[\033[0;36m\]\u\[\033[0;35;40m\]@\h\[\033[0;37;0m\] \[\033[1;33m\]\W\[\033[0;37;0m\] [\j]" " \\\$ "'
+fi
+
+if [[ "${TERM_PROGRAM}" == "vscode" ]]; then
+    PS1="\$ "
+    unset PROMPT_COMMAND
 fi
 
 if ! test -f ~/.local/etc/kube-tmux.sh; then
@@ -125,7 +130,7 @@ else
 fi
 export GOPATH=$HOME/go
 mkdir -p ${GOPATH}
-PATH=$GOPATH/bin:$PATH
+PATH=$GOPATH/bin:${HOME}/.krew/bin:$PATH
 
 # configure GnuPG
 export GPG_TTY=$(tty)
@@ -136,7 +141,7 @@ else
 fi
 
 # configure homebrew
-eval $(/home/dillen/.linuxbrew/bin/brew shellenv)
+eval $(${HOME}/.linuxbrew/bin/brew shellenv)
 if type brew &>/dev/null; then
     HOMEBREW_PREFIX="$(brew --prefix)"
     if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then

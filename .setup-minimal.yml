@@ -1,7 +1,0 @@
----
-
-- name: Install prerequisites for dotfiles
-  hosts: localhost
-  gather_facts: no
-  roles:
-    - powerline-go

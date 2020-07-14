@@ -14,3 +14,5 @@ alias caa="config add --all"
 alias cc="config commit -m"
 alias cpsh="config push"
 alias cpll="config pull"
+
+alias kga="kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found"
