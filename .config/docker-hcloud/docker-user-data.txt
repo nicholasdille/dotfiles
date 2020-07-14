@@ -2,6 +2,8 @@
 
 curl -fL https://get.docker.com | sh
 
+apt-get -y install curl jq make
+
 # kubectl
 curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt | \
     xargs -I{} curl -sLo /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/{}/bin/linux/amd64/kubectl
