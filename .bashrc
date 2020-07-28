@@ -85,7 +85,7 @@ fi
 # add beatiful prompt (powerline-go)
 if test -x ~/.local/bin/powerline-go; then
     function _update_ps1() {
-        PS1="$(~/.local/bin/powerline-go -theme ${HOME}/.local/etc/powerline-go-theme.json -error $? -modules exit,user,cwd,git,docker-context,kube,jobs -newline)"
+        PS1="$(~/.local/bin/powerline-go -theme ${HOME}/.local/etc/powerline-go-theme.json -error $? -modules exit,user,cwd,git,docker-context,kube,jobs -newline -cwd-mode dironly)"
     }
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 else
