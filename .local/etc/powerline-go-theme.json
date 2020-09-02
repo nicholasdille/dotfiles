@@ -1,8 +1,8 @@
 {
   "KubeClusterFg": 117,
-  "KubeClusterBg": 17,
+  "KubeClusterBg": 26,
   "KubeNamespaceFg": 117,
-  "KubeNamespaceBg": 26,
+  "KubeNamespaceBg": 17,
   "Reset": 255,
   "UsernameFg": 250,
   "UsernameBg": 240,
