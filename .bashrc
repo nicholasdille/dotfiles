@@ -1,21 +1,11 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
 HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
 
@@ -43,35 +33,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-
 PATH="${PATH:+${PATH}:}${HOME}/.local/bin"
-
-# enable custom bash completion
-if [ -d ~/.bash_completion.d ]; then
-    for FILE in ~/.bash_completion.d/* ; do
-      [ -f "${FILE}" ] && . ${FILE}
-    done
-fi
-if [ -d ~/.local/etc/bash_completion.d ]; then
-    for FILE in ~/.local/etc/bash_completion.d/* ; do
-      [ -f "${FILE}" ] && . ${FILE}
-    done
-fi
-if [ -d /usr/local/etc/bash_completion.d ]; then
-    for FILE in /usr/local/etc/bash_completion.d/* ; do
-      [ -f "${FILE}" ] && . ${FILE}
-    done
-fi
 
 # tools
 if type most >/dev/null; then
@@ -79,12 +41,6 @@ if type most >/dev/null; then
 fi
 if type vim >/dev/null; then
     export EDITOR=vim
-fi
-
-# configure tmux
-if [[ -z "${TMUX}" && "${TERM_PROGRAM}" != "vscode" ]]; then
-    tmux ls | grep -vq attached && TMUXARG="attach-session -d"
-    exec tmux -2 $TMUXARG
 fi
 
 for FILE in ~/.local/etc/profile.d/*.sh; do
