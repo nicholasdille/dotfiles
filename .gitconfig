@@ -12,5 +12,7 @@
     path = .gitconfig-private
 [includeif "gitdir:**/go/**"]
     path = .gitconfig-private
+[includeif "gitdir:/home/linuxbrew/**"]
+    path = .gitconfig-private
 [includeif "gitdir:**/johnic/**"]
     path = .gitconfig-johnic

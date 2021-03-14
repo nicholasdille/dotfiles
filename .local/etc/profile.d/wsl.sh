@@ -1,6 +1,4 @@
 if test -n "${WSL_DISTRO_NAME}"; then
-    APPDATA="$(wslvar appdata)"
-    APPDATA="${APPDATA//\\/\/}"
 
     export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
     ss -a | grep -q $SSH_AUTH_SOCK
@@ -11,6 +9,8 @@ if test -n "${WSL_DISTRO_NAME}"; then
 
     export GPG_SOCK="$HOME/.gnupg/S.gpg-agent"
     if ! ss -a | grep -q "$GPG_SOCK"; then
+        APPDATA="$(wslvar appdata)"
+        APPDATA="${APPDATA//\\/\/}"
         rm -f "$GPG_SOCK"
         mkdir -p "$(dirname "$GPG_SOCK")"
         ( setsid socat UNIX-LISTEN:"$GPG_SOCK",fork EXEC:"npiperelay.exe -ei -ep -s -a "'"'"$APPDATA"/gnupg/S.gpg-agent'"',nofork & ) >/dev/null 2>&1
