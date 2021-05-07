@@ -21,18 +21,6 @@ bash ~/.setup-minimal.sh
 
 ## Windows Subsystem for Linux (WSL)
 
+To create a new distribution, download a root filesystem, e.g. [Ubuntu Hirsute](https://cloud-images.ubuntu.com/hirsute/current/), then import it using `wsl.exe --import my_name c:\wsl\ubuntu ~\Downloads\hirsute-server-cloudimg-amd64-wsl.rootfs.tar.gz`. Afterwards set a username as documented [here](https://docs.microsoft.com/en-us/windows/wsl/wsl-config#user).
+
 For pretty prompts (based on powerline) you need to install a proper terminal emulator and fonts. I recommend the [Windows Terminal](https://github.com/microsoft/terminal/releases) with [Cascadia Code](https://github.com/microsoft/cascadia-code).
-
-### SSH agent on WSL
-
-I consider WSL to be a tool but my Windows is authorative. Therefore, my KeePass2 is responsible for storing SSH keys and providing an SSH agent (compatible to putty pageant). The following commands rely on [weasel-pageant](https://github.com/vuori/weasel-pageant) and install the binaries in `~\Documents\Apps\wsl-pageant\`:
-
-```powershell
-$WeaselPageantVersion = 1.1
-Invoke-WebRequest -UseBasicParsing -Uri https://github.com/vuori/weasel-pageant/releases/download/v$WeaselPageantVersion/weasel-pageant-$WeaselPageantVersion.zip -OutFile "$env:temp\weasel-pageant-$WeaselPageantVersion.zip"
-Unblock-File -Path "$env:temp\weasel-pageant-$WeaselPageantVersion.zip"
-Expand-Archive -Path $env:temp\weasel-pageant-$WeaselPageantVersion.zip -DestinationPath ~\Documents\Apps
-Rename-Item -Path ~\Documents\Apps\weasel-pageant-$WeaselPageantVersion -NewName ~\Documents\Apps\weasel-pageant
-```
-
-The connection to the SSH agent running on Windows is established by running `~/ssh-agent.sh` in WSL.
