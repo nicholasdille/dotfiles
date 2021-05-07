@@ -13,6 +13,11 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# enable for debugging
+#PS4='+ $(date "+%s.%N")\011 '
+#exec 3>&2 2>/tmp/bashstart.$$.log
+#set -x
+
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -43,6 +48,11 @@ if type vim >/dev/null; then
     export EDITOR=vim
 fi
 
-for FILE in ~/.local/etc/profile.d/*.sh; do
+for FILE in ${HOME}/.local/etc/profile.d/*.sh; do
+    echo "Sourcing ${FILE}"
     source ${FILE}
 done
+
+# enable for debugging
+#set +x
+#exec 2>&3 3>&-
