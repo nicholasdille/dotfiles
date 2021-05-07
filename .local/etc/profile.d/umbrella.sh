@@ -1,10 +1,6 @@
 #!/bin/bash
 
-if test -z "${WSL_DISTRO_NAME}"; then
-    exit
-fi
-
-if test "${HOSTNAME:0:2}" == "HG"; then
+if test -z "${WSL_DISTRO_NAME}" && "${HOSTNAME:0:2}" == "HG"; then
 
     if ! test -f /usr/local/share/ca-certificates/umbrella.crt; then
         sudo true
