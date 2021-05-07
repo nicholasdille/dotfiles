@@ -12,6 +12,12 @@ if [ -d /usr/local/etc/bash_completion.d ]; then
     done
 fi
 
+if [ -d /home/linuxbrew/.linuxbrew/etc/bash_completion.d ]; then
+    for FILE in /home/linuxbrew/.linuxbrew/etc/bash_completion.d/* ; do
+      [ -e "${FILE}" ] && . ${FILE}
+    done
+fi
+
 if [ -d ~/.bash_completion.d ]; then
     for FILE in ~/.bash_completion.d/* ; do
       [ -f "${FILE}" ] && . ${FILE}

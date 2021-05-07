@@ -10,7 +10,9 @@
     path = .gitconfig-haufe
 [includeif "gitdir:**/private/**"]
     path = .gitconfig-private
-[includeif "gitdir:**/go/**"]
+[includeif "gitdir:/home/linuxbrew/**"]
     path = .gitconfig-private
 [includeif "gitdir:**/johnic/**"]
     path = .gitconfig-johnic
+[diff "sopsdiffer"]
+	textconv = sops -d
