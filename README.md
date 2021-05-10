@@ -10,14 +10,11 @@ The following commands create a checkout in your home directory. For this, a det
 git clone --bare https://github.com/nicholasdille/dotfiles $HOME/.cfg
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
+rm ~/.bash_logout ~/.bashrc ~/.profile
 config checkout
 ```
 
-As soon as the dotfiles are checked out, you should make sure that all required packages are installed:
-
-```bash
-bash ~/.setup-minimal.sh
-```
+As soon as you start a login shell for the first time, you will see the first launch setup.
 
 ## Windows Subsystem for Linux (WSL)
 
