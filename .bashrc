@@ -38,13 +38,11 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-PATH="${PATH:+${PATH}:}${HOME}/.local/bin"
-
 # tools
-if type most >/dev/null; then
+if type most >/dev/null 2>&1; then
     export PAGER=most
 fi
-if type vim >/dev/null; then
+if type vim >/dev/null 2>&1; then
     export EDITOR=vim
 fi
 

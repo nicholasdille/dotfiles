@@ -14,14 +14,27 @@ if ! test -f "${HOME}/.local/etc/first-launch-done"; then
 
         ln -s /mnt/c/Users/$(wslvar USERNAME) ${HOME}/home
     fi
-
+    
     sudo apt-get update
     sudo apt-get -y install \
         most \
         curl \
         jq \
         ca-certificates \
-        socat
+        socat \
+        apt-transport-https
+
+    sudo curl -sLo /etc/apt/trusted.gpg.d/wsl-transdebian.gpg https://arkane-systems.github.io/wsl-transdebian/apt/wsl-transdebian.gpg
+    sudo chmod a+r /etc/apt/trusted.gpg.d/wsl-transdebian.gpg
+    sudo tee /etc/apt/sources.list.d/wsl-transdebian.list >/dev/null <<EOF
+deb https://arkane-systems.github.io/wsl-transdebian/apt/ $(lsb_release -cs) main
+deb-src https://arkane-systems.github.io/wsl-transdebian/apt/ $(lsb_release -cs) main
+EOF
+    curl -sLo /tmp/packages-microsoft-prod.deb https://packages.microsoft.com/config/ubuntu/20.10/packages-microsoft-prod.deb
+    sudo dpkg -i /tmp/packages-microsoft-prod.deb
+    sudo apt-get update
+    sudo apt-get -y install \
+        systemd-genie
 
     cat ~/.gitconfig* | \
         grep signingkey | \

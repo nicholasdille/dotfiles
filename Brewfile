@@ -7,3 +7,10 @@ tap "gergelyrozsas/systemctl"
 
 brew "powerline-go"
 brew "whalebrew"
+
+brew "doitlive"
+
+brew "cowsay"
+brew "ponysay"
+brew "figlet"
+brew "toilet"
