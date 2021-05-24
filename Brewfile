@@ -12,5 +12,6 @@ brew "doitlive"
 
 brew "cowsay"
 brew "ponysay"
+brew "lolcat"
 brew "figlet"
 brew "toilet"
