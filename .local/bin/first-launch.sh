@@ -51,6 +51,10 @@ EOF
         source "${HOME}/.local/etc/profile.d/@homebrew.sh"
         brew install gcc
         brew bundle --file ${HOME}/Brewfile
+
+        mkdir -p ${HOME}/.local/share
+        ln -s /home/linuxbrew/.linuxbrew/share/fonts ${HOME}/.local/share/fonts
+        fc-cache -fv
     fi
 
     echo "### FIRST LAUNCH DONE"
