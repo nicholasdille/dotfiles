@@ -6,6 +6,8 @@ tap "nicholasdille/immortal"
 tap "claui/whence"
 tap "gergelyrozsas/systemctl"
 tap "filippo.io/age"
+tap "dagger/tap"
+tap "cuelang/tap"
 
 brew "powerline-go"
 brew "font-cascadia-code"
@@ -16,6 +18,8 @@ brew "whalebrew"
 
 brew "age"
 brew "mkcert"
+brew "dagger"
+brew "cue"
 
 brew "doitlive"
 
