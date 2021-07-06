@@ -19,6 +19,7 @@ brew "whalebrew"
 brew "kubernetes-cli"
 brew "helm"
 brew "kind"
+brew "jq"
 brew "yq"
 
 brew "age"
