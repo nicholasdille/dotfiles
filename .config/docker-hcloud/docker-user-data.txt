@@ -5,15 +5,8 @@ apt-get -y install bash curl jq make
 
 curl -fL https://get.docker.com | sh
 
-# kubectl
-curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt | \
-    xargs -I{} curl -sLo /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/{}/bin/linux/amd64/kubectl
-chmod +x /usr/local/bin/kubectl
-cat >>~/.bashrc <<EOF
-source <(kubectl completion bash)
-alias k=kubectl
-complete -F __start_kubectl k
-EOF
+groupadd --gid "${GROUP_ID}" "${GROUP_NAME}"
+useradd --create-home --shell "${USER_SHELL}" --uid "${USER_ID}" --gid "${GROUP_NAME}" --groups docker "${USER_NAME}"
 
 # k3s
 curl -s https://api.github.com/repos/rancher/k3s/releases/latest | \
