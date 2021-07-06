@@ -4,9 +4,12 @@ if ! test -f "${HOME}/.local/etc/first-launch-done"; then
 
     echo "### FIRST LAUNCH START"
 
-    sudo true
+    if ! sudo true; then
+        echo "ERROR: Unable to sudo"
+        exit 1
+    fi
 
-    chmod 0700 "${HOME}.gnupg"
+    chmod --quiet 0700 "${HOME}.gnupg"
 
     if test -n "${WSL_DISTRO_NAME}"; then
         sudo curl -sLo /usr/local/bin/npiperelay.exe https://github.com/NZSmartie/npiperelay/releases/download/v0.1/npiperelay.exe

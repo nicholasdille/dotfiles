@@ -8,18 +8,21 @@ curl -fL https://get.docker.com | sh
 groupadd --gid "${GROUP_ID}" "${GROUP_NAME}"
 useradd --create-home --shell "${USER_SHELL}" --uid "${USER_ID}" --gid "${GROUP_NAME}" --groups docker "${USER_NAME}"
 
-# k3s
-curl -s https://api.github.com/repos/rancher/k3s/releases/latest | \
-    jq --raw-output '.assets[] | select(.name == "k3s") | .browser_download_url' | \
-    xargs curl -sLfo /usr/local/bin/k3s
-chmod +x /usr/local/bin/k3s
+mkdir "${USER_HOME}/.ssh"
+chmod 0700 "${USER_HOME}/.ssh"
+chown user:user "${USER_HOME}/.ssh"
+cp /root/.ssh/authorized_keys "${USER_HOME}/.ssh"
+chmod 0600 "${USER_HOME}/.ssh/authorized_keys"
+chown -R user:user "${USER_HOME}/.ssh"
 
-# k3d
-curl -s https://raw.githubusercontent.com/rancher/k3d/master/install.sh | bash
+echo "${USER_NAME} ALL=(ALL) NOPASSWD: ALL" >"/etc/sudoers.d/${USER_NAME}"
 
-# kind
-curl -s https://api.github.com/repos/kubernetes-sigs/kind/releases/latest | \
-        jq --raw-output '.assets[] | select(.name == "kind-linux-amd64") | .browser_download_url' | \
-            xargs curl -sLfo /usr/local/bin/kind
-chmod +x /usr/local/bin/kind
-
+sudo -u user env "USER=${USER_NAME}" "HOME=${USER_HOME}" bash <<EOF
+set -xe
+printenv | sort
+git clone --bare https://github.com/nicholasdille/dotfiles "${USER_HOME}/.cfg"
+alias config='/usr/bin/git --git-dir="${USER_HOME}/.cfg" --work-tree="${USER_HOME}"'
+config config --local status.showUntrackedFiles no
+rm "${USER_HOME}/.bash_logout" "${USER_HOME}/.bashrc" "${USER_HOME}/.profile"
+config checkout
+EOF
