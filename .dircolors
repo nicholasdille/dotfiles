@@ -1,3 +1,5 @@
+# Color palette
+# https://unix.stackexchange.com/a/94505
 
 # Dark 256 color solarized theme for the color GNU ls utility.
 # Used and tested with dircolors (GNU coreutils) 8.5
@@ -103,8 +105,8 @@ TERM xterm-termite
 
 ## Special files
 
-NORMAL 00;38;5;244 # no color code at all
-#FILE 00 # regular file: use no color at all
+NORMAL 00 # no color code at all
+FILE 00 # regular file: use no color at all
 RESET 0 # reset to "normal" color
 DIR 00;38;5;33 # directory 01;34
 LINK 00;38;5;37 # symbolic link. (If you set this to 'target' instead of a
@@ -126,37 +128,37 @@ STICKY 48;5;33;38;5;230 # dir with the sticky bit set (+t) and not other-writabl
 EXEC 00;38;5;64
 
 ## Archives or compressed (violet + bold for compression)
-.tar    00;38;5;61
-.tgz    00;38;5;61
-.arj    00;38;5;61
-.taz    00;38;5;61
-.lzh    00;38;5;61
-.lzma   00;38;5;61
-.tlz    00;38;5;61
-.txz    00;38;5;61
-.zip    00;38;5;61
-.z      00;38;5;61
-.Z      00;38;5;61
-.dz     00;38;5;61
-.gz     00;38;5;61
-.lz     00;38;5;61
-.xz     00;38;5;61
-.bz2    00;38;5;61
-.bz     00;38;5;61
-.tbz    00;38;5;61
-.tbz2   00;38;5;61
-.tz     00;38;5;61
-.deb    00;38;5;61
-.rpm    00;38;5;61
-.jar    00;38;5;61
-.rar    00;38;5;61
-.ace    00;38;5;61
-.zoo    00;38;5;61
-.cpio   00;38;5;61
-.7z     00;38;5;61
-.rz     00;38;5;61
-.apk    00;38;5;61
-.gem    00;38;5;61
+.tar    00;38;5;141
+.tgz    00;38;5;141
+.arj    00;38;5;141
+.taz    00;38;5;141
+.lzh    00;38;5;141
+.lzma   00;38;5;141
+.tlz    00;38;5;141
+.txz    00;38;5;141
+.zip    00;38;5;141
+.z      00;38;5;141
+.Z      00;38;5;141
+.dz     00;38;5;141
+.gz     00;38;5;141
+.lz     00;38;5;141
+.xz     00;38;5;141
+.bz2    00;38;5;141
+.bz     00;38;5;141
+.tbz    00;38;5;141
+.tbz2   00;38;5;141
+.tz     00;38;5;141
+.deb    00;38;5;141
+.rpm    00;38;5;141
+.jar    00;38;5;141
+.rar    00;38;5;141
+.ace    00;38;5;141
+.zoo    00;38;5;141
+.cpio   00;38;5;141
+.7z     00;38;5;141
+.rz     00;38;5;141
+.apk    00;38;5;141
+.gem    00;38;5;141
 
 # Image formats (yellow)
 .jpg    00;38;5;136
@@ -188,65 +190,58 @@ EXEC 00;38;5;64
 .CR2    00;38;5;136
 .ico    00;38;5;136
 
-# Files of special interest (base1)
-.tex             00;38;5;245
-.rdf             00;38;5;245
-.owl             00;38;5;245
-.n3              00;38;5;245
-.ttl             00;38;5;245
-.nt              00;38;5;245
-.torrent         00;38;5;245
-.xml             00;38;5;245
-*Makefile        00;38;5;245
-*Rakefile        00;38;5;245
-*Dockerfile      00;38;5;245
-*build.xml       00;38;5;245
-*rc              00;38;5;245
-*1               00;38;5;245
-.nfo             00;38;5;245
-*README          00;38;5;245
-*README.txt      00;38;5;245
-*readme.txt      00;38;5;245
-.md              00;38;5;245
-*README.markdown 00;38;5;245
-.ini             00;38;5;245
-.yml             00;38;5;245
-.cfg             00;38;5;245
-.conf            00;38;5;245
-.h               00;38;5;245
-.hpp             00;38;5;245
-.c               00;38;5;245
-.cpp             00;38;5;245
-.cxx             00;38;5;245
-.cc              00;38;5;245
-.objc            00;38;5;245
-.sqlite          00;38;5;245
-.go              00;38;5;245
-.sql             00;38;5;245
-.csv             00;38;5;245
+# Special interest
+*Dockerfile      00;38;5;35
+*Makefile        00;38;5;35
+.sh              00;38;5;131
+.yaml            00;38;5;35
+.yml             00;38;5;35
+.json            00;38;5;35
+.md              00;38;5;35
+.conf            00;38;5;35
+.ini             00;38;5;35
+.cfg             00;38;5;35
+*README          00;38;5;35
+.log             00;38;5;35
+
+# Code
+.tex             00;38;5;28
+.rdf             00;38;5;28
+.xml             00;38;5;28
+.h               00;38;5;28
+.hpp             00;38;5;28
+.c               00;38;5;28
+.cpp             00;38;5;28
+.cxx             00;38;5;28
+.cc              00;38;5;28
+.objc            00;38;5;28
+.sqlite          00;38;5;28
+.go              00;38;5;28
+.sql             00;38;5;28
+.csv             00;38;5;28
+.java            00;38;5;28
 
 # "unimportant" files as logs and backups (base01)
-.log        00;38;5;240
-.bak        00;38;5;240
-.aux        00;38;5;240
-.lof        00;38;5;240
-.lol        00;38;5;240
-.lot        00;38;5;240
-.out        00;38;5;240
-.toc        00;38;5;240
-.bbl        00;38;5;240
-.blg        00;38;5;240
-*~          00;38;5;240
-*#          00;38;5;240
-.part       00;38;5;240
-.incomplete 00;38;5;240
-.swp        00;38;5;240
-.tmp        00;38;5;240
-.temp       00;38;5;240
-.o          00;38;5;240
-.pyc        00;38;5;240
-.class      00;38;5;240
-.cache      00;38;5;240
+.bak        00;38;5;250
+.aux        00;38;5;250
+.lof        00;38;5;250
+.lol        00;38;5;250
+.lot        00;38;5;250
+.out        00;38;5;250
+.toc        00;38;5;250
+.bbl        00;38;5;250
+.blg        00;38;5;250
+*~          00;38;5;250
+*#          00;38;5;250
+.part       00;38;5;250
+.incomplete 00;38;5;250
+.swp        00;38;5;250
+.tmp        00;38;5;250
+.temp       00;38;5;250
+.o          00;38;5;250
+.pyc        00;38;5;250
+.class      00;38;5;250
+.cache      00;38;5;250
 
 # Audio formats (orange)
 .aac    00;38;5;166
