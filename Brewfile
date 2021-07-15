@@ -8,6 +8,8 @@ tap "gergelyrozsas/systemctl"
 tap "FiloSottile/age", "https://github.com/FiloSottile/age"
 tap "dagger/tap"
 tap "cuelang/tap"
+tap "anchore/syft"
+tap "anchore/grype"
 
 brew "powerline-go"
 brew "font-cascadia-code"
@@ -26,6 +28,8 @@ brew "age"
 brew "mkcert"
 brew "dagger"
 brew "cue"
+brew "syft"
+brew "grype"
 
 brew "doitlive"
 
