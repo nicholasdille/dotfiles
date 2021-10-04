@@ -39,6 +39,7 @@ brew "grype"
 brew "cfssl"
 
 brew "doitlive"
+brew "marp-cli"
 
 brew "cowsay"
 brew "ponysay"
