@@ -3,6 +3,7 @@ tap "linuxbrew/fonts"
 
 tap "nicholasdille/tap"
 tap "nicholasdille/immortal"
+tap "nicholasdille/service"
 tap "claui/whence"
 tap "gergelyrozsas/systemctl"
 tap "homeport/tap"
