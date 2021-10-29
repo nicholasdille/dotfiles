@@ -42,6 +42,7 @@ brew "cue"
 brew "syft"
 brew "grype"
 brew "cfssl"
+brew "nickgerace/nickgerace/gfold"
 
 brew "doitlive"
 brew "marp-cli"
