@@ -34,6 +34,7 @@ brew "yq"
 brew "act"
 brew "havener"
 brew "pluto"
+birew "jmespath/jmespath/jp"
 
 brew "age"
 brew "mkcert"
