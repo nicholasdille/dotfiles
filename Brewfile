@@ -43,6 +43,7 @@ brew "cue"
 brew "cfssl"
 brew "nickgerace/nickgerace/gfold"
 
+brew "direnv"
 brew "doitlive"
 brew "pv"
 brew "dialog"
