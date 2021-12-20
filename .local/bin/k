@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if test -n "${KUBECTL_CONTEXT}"; then
+    KUBECTL_CONTEXT="--context ${KUBECTL_CONTEXT}"
+fi
+exec kubectl "${KUBECTL_CONTEXT}" "$@"
