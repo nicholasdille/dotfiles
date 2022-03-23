@@ -1,5 +1,5 @@
 [user]
     email = nicholas.dille@mailbox.org
-    signingkey = 441B49228F349460
+    signingkey = C128FF7D9EBA17FB
 [commit]
     gpgsign = true
