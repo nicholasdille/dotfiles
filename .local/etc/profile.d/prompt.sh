@@ -18,7 +18,7 @@ else
     export PROMPT_COMMAND='__git_ps1 "\[\033[0;36m\]\u\[\033[0;35;40m\]@\h\[\033[0;37;0m\] \[\033[1;33m\]\W\[\033[0;37;0m\] [\j]" " \\\$ "'
 fi
 
-if [[ "${TERM_PROGRAM}" == "vscode" ]]; then
+if [[ "${TERM_PROGRAM}" == "vscode" ]] || [[ "${ASCIINEMA_REC}" == "1" ]]; then
     PS1="\$ "
     unset PROMPT_COMMAND
 fi
