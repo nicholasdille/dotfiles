@@ -1,9 +1,9 @@
 [push]
-	default = simple
+    default = simple
 [credential]
-	helper = store
+    helper = store
 [user]
-	name = Nicholas Dille
+    name = Nicholas Dille
 [includeif "gitdir:**/.cfg"]
     path = .gitconfig-private
 [includeif "gitdir:**/haufe/**"]
