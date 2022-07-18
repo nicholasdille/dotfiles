@@ -1,9 +1,9 @@
 [push]
-	default = simple
+    default = simple
 [credential]
-	helper = store
+    helper = store
 [user]
-	name = Nicholas Dille
+    name = Nicholas Dille
 [includeif "gitdir:**/.cfg"]
     path = .gitconfig-private
 [includeif "gitdir:**/haufe/**"]
@@ -12,11 +12,5 @@
     path = .gitconfig-private
 [includeif "gitdir:/home/linuxbrew/**"]
     path = .gitconfig-private
-[includeif "gitdir:/home/linuxbrew/**"]
-    path = .gitconfig-private
-[includeif "gitdir:**/johnic/**"]
-    path = .gitconfig-johnic
-[diff "sopsdiffer"]
-    textconv = sops -d
 [alias]
     parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//' #"

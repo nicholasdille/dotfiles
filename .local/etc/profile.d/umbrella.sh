@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if test -z "${WSL_DISTRO_NAME}" && "${HOSTNAME:0:2}" == "HG"; then
+if test -n "${WSL_DISTRO_NAME}" && test "${HOSTNAME:0:2}" == "HG"; then
 
     if ! test -f /usr/local/share/ca-certificates/umbrella.crt; then
         sudo true
@@ -11,7 +11,7 @@ if test -z "${WSL_DISTRO_NAME}" && "${HOSTNAME:0:2}" == "HG"; then
         fi
 
         if test -f "${HOME}/umbrella.pem"; then
-            sudo cp vc"${HOME}/umbrella.pem" /usr/local/share/ca-certificates/umbrella.crt
+            sudo cp "${HOME}/umbrella.pem" /usr/local/share/ca-certificates/umbrella.crt
             sudo update-ca-certificates
         fi
 

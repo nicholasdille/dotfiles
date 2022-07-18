@@ -1,6 +1,12 @@
 #!/bin/bash
 
-if test -n "${KUBECTL_CONTEXT}"; then
-    KUBECTL_CONTEXT="--context ${KUBECTL_CONTEXT}"
+function has_parameter() {
+    local param=$1
+    shift
+    printf "%s\n" "$@" | grep -qE "^$param"
+}
+
+if test -n "${KUBECTL_CONTEXT}"i && ! has_parameter "--context" "$@"; then
+    KUBECTL_CONTEXT_PARAM="--context=${KUBECTL_CONTEXT}"
 fi
-exec kubectl "${KUBECTL_CONTEXT}" "$@"
+exec kubectl ${KUBECTL_CONTEXT_PARAM} "$@"

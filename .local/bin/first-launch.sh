@@ -9,14 +9,8 @@ if ! test -f "${HOME}/.local/etc/first-launch-done"; then
         exit 1
     fi
 
-    chmod --quiet 0700 "${HOME}.gnupg"
-
-    if test -n "${WSL_DISTRO_NAME}"; then
-        sudo curl -sLo /usr/local/bin/npiperelay.exe https://github.com/NZSmartie/npiperelay/releases/download/v0.1/npiperelay.exe
-        sudo chmod +x /usr/local/bin/npiperelay.exe
-
-        ln -s /mnt/c/Users/$(wslvar USERNAME) ${HOME}/home
-    fi
+    mkdir -p "${HOME}/.gnupg"
+    chmod --quiet 0700 "${HOME}/.gnupg"
     
     sudo apt-get update
     sudo apt-get -y install \
@@ -25,7 +19,16 @@ if ! test -f "${HOME}/.local/etc/first-launch-done"; then
         jq \
         ca-certificates \
         socat \
-        apt-transport-https
+        apt-transport-https \
+        unzip \
+        wslu
+
+    if test -n "${WSL_DISTRO_NAME}"; then
+        curl -sLo /tmp/win-gpg-agent.zip https://github.com/rupor-github/win-gpg-agent/releases/download/v1.6.3/win-gpg-agent.zip
+        sudo unzip -d /usr/local/bin/ /tmp/win-gpg-agent.zip sorelay.exe
+
+        ln -s /mnt/c/Users/$(wslvar USERNAME) ${HOME}/home
+    fi
 
     sudo curl -sLo /etc/apt/trusted.gpg.d/wsl-transdebian.gpg https://arkane-systems.github.io/wsl-transdebian/apt/wsl-transdebian.gpg
     sudo chmod a+r /etc/apt/trusted.gpg.d/wsl-transdebian.gpg
@@ -53,7 +56,7 @@ EOF
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         source "${HOME}/.local/etc/profile.d/@homebrew.sh"
         brew install gcc
-        brew bundle --file ${HOME}/Brewfile
+        #brew bundle --file ${HOME}/Brewfile
 
         mkdir -p ${HOME}/.local/share
         ln -s /home/linuxbrew/.linuxbrew/share/fonts ${HOME}/.local/share/fonts
