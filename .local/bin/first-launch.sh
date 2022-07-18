@@ -25,7 +25,7 @@ if ! test -f "${HOME}/.local/etc/first-launch-done"; then
 
     if test -n "${WSL_DISTRO_NAME}"; then
         curl -sLo /tmp/win-gpg-agent.zip https://github.com/rupor-github/win-gpg-agent/releases/download/v1.6.3/win-gpg-agent.zip
-        sudo unzip -d /usr/local/bin/ /tmp/win-gpg-agent.zip sorelay.exe
+        sudo unzip -o -d /usr/local/bin/ /tmp/win-gpg-agent.zip sorelay.exe
 
         ln -s /mnt/c/Users/$(wslvar USERNAME) ${HOME}/home
     fi
