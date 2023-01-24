@@ -46,10 +46,6 @@ if type vim >/dev/null 2>&1; then
     export EDITOR=vim
 fi
 
-if test -f "${HOME}/.local/bin/first-launch.sh"; then
-    source "${HOME}/.local/bin/first-launch.sh"
-fi
-
 for FILE in ${HOME}/.local/etc/profile.d/*.sh; do
     #echo "Sourcing ${FILE}"
     source ${FILE}

@@ -8,30 +8,36 @@ fi
 
 if [ -d /usr/local/etc/bash_completion.d ]; then
     for FILE in /usr/local/etc/bash_completion.d/* ; do
-      [ -f "${FILE}" ] && . ${FILE}
-    done
-fi
-
-if [ -d /home/linuxbrew/.linuxbrew/etc/bash_completion.d ]; then
-    for FILE in /home/linuxbrew/.linuxbrew/etc/bash_completion.d/* ; do
-      [ -e "${FILE}" ] && . ${FILE}
+      if test -f "${FILE}"; then
+          #echo "Sourcing completion ${FILE}"
+          source "${FILE}"
+      fi
     done
 fi
 
 if [ -d /usr/local/share/bash-completion/completions ]; then
     for FILE in /usr/local/share/bash-completion/completions/* ; do
-      [ -f "${FILE}" ] && . ${FILE}
+      if test -f "${FILE}"; then
+          #echo "Sourcing completion ${FILE}"
+          source "${FILE}"
+      fi
     done
 fi
 
 if [ -d ~/.bash_completion.d ]; then
     for FILE in ~/.bash_completion.d/* ; do
-      [ -f "${FILE}" ] && . ${FILE}
+      if test -f "${FILE}"; then
+          #echo "Sourcing completion ${FILE}"
+          source "${FILE}"
+      fi
     done
 fi
 
 if [ -d ~/.local/etc/bash_completion.d ]; then
     for FILE in ~/.local/etc/bash_completion.d/* ; do
-      [ -f "${FILE}" ] && . ${FILE}
+      if test -f "${FILE}"; then
+          #echo "Sourcing completion ${FILE}"
+          source "${FILE}"
+      fi
     done
 fi
