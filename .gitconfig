@@ -4,14 +4,22 @@
     helper = store
 [user]
     name = Nicholas Dille
-[includeif "gitdir:**/.cfg"]
+[commit]
+    gpgsign = true
+[includeif "gitdir/i:~/.cfg"]
     path = .gitconfig-private
-[includeif "gitdir:**/haufe/**"]
+[includeif "gitdir/i:~/private/**"]
+    path = .gitconfig-private
+[includeif "gitdir/i:~/haufe/**"]
     path = .gitconfig-haufe
-[includeif "gitdir:**/private/**"]
-    path = .gitconfig-private
-[includeif "gitdir:/home/linuxbrew/**"]
-    path = .gitconfig-private
+#[includeif "hasconfig:remote.*.url:https://github.com/nicholasdille/*"]
+#    path = .gitconfig-private
+#[includeIf "hasconfig:remote.*.url:https://gitlab.com/nicholasdille/**"]
+#    path = .gitconfig-private
+#[includeIf "hasconfig:remote.*.url:https://gitlab.haufedev.systems/**"]
+#    path = .gitconfig-haufe
+#[includeIf "hasconfig:remote.*.url:https://gitlab.com/dos-devinfra/**"]
+#    path = .gitconfig-haufe
 [alias]
     lg  = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
     lgg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
