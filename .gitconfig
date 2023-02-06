@@ -12,6 +12,8 @@
     path = .gitconfig-private
 [includeIf "hasconfig:remote.*.url:https://gitlab.haufedev.systems/**"]
     path = .gitconfig-haufe
+[includeIf "hasconfig:remote.*.url:https://dillen@gitlab.haufedev.systems/**"]
+    path = .gitconfig-haufe
 [includeIf "hasconfig:remote.*.url:https://gitlab.com/dos-devinfra/**"]
     path = .gitconfig-haufe
 [alias]
