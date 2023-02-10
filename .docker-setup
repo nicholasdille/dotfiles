@@ -1,0 +1,26 @@
+# shell
+powerline-go
+direnv
+mcfly
+navi
+gojq
+yq
+
+# wsl
+socat
+win-gpg-agent
+
+# cloud
+hcloud
+
+# containerization
+docker
+docker-compose
+buildx
+regclient
+helm
+kubectl
+kubeswitch
+cosign
+gitsign
+
