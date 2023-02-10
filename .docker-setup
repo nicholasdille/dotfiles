@@ -23,4 +23,6 @@ kubectl
 kubeswitch
 cosign
 gitsign
+dive
+oras
 
