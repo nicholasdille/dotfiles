@@ -16,6 +16,7 @@ if ! test -f "${HOME}/.local/etc/first-launch-done"; then
     sudo apt-get update
     sudo apt-get -y install --no-install-recommends \
         git \
+        make \
         most \
         curl \
         jq \
