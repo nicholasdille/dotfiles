@@ -12,8 +12,10 @@ if ! test -f "${HOME}/.local/etc/first-launch-done"; then
     mkdir -p "${HOME}/.gnupg"
     chmod --quiet 0700 "${HOME}/.gnupg"
     
+    sudo add-apt-repository ppa:git-core/ppa
     sudo apt-get update
-    sudo apt-get -y install \
+    sudo apt-get -y install --no-install-recommends \
+        git \
         most \
         curl \
         jq \
