@@ -9,7 +9,7 @@ if test -n "${WSL_DISTRO_NAME}" && type sorelay.exe >/dev/null 2>&1; then
     #    ( setsid socat UNIX-LISTEN:"${SSH_AUTH_SOCK}",fork EXEC:"sorelay.exe -a //./pipe/openssh-ssh-agent",nofork & ) >/dev/null 2>&1
     #fi
 
-    if test -f "/mnt/c/Program Files (x86)/GnuPG/bin/gpg-connect-agent.exe"; then
+    if test -f "${HOME}/home/AppData/Local/Programs/GnuPG/bin/gpg-connect-agent.exe"; then
         export GPG_SOCK="${HOME}/.gnupg/S.gpg-agent"
         if ! ss -a | grep -q "${GPG_SOCK}"; then
             echo "Setting up socket for GPG agent"
@@ -24,7 +24,7 @@ if test -n "${WSL_DISTRO_NAME}" && type sorelay.exe >/dev/null 2>&1; then
 
         # Check that %AppData%\gnupg\gpg-agent.conf contains enable-ssh-support and enable-putty-support
 
-        "/mnt/c/Program Files (x86)/GnuPG/bin/gpg-connect-agent.exe" /bye
+        "${HOME}/home/AppData/Local/Programs/GnuPG/bin/gpg-connect-agent.exe" /bye
     fi
 
 fi
