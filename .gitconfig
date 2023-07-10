@@ -17,13 +17,13 @@
     path = .gitconfig-haufe
 
 [credential "https://github.com/nicholasdille"]
-    helper = "!pp github-nicholasdille"
+    helper = "!pp git-github-nicholasdille"
     useHttpPath = true
 [credential "https://github.com/uniget-org"]
-    helper = "!pp github-uniget"
+    helper = "!pp git-github-uniget"
     useHttpPath = true
 [credential "https://gitlab.haufedev.systems"]
-    helper = "!ph gitlab-live"
+    helper = "!ph git-gitlab-live"
 
 [alias]
     lg  = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
