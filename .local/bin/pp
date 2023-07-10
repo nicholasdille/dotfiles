@@ -1,0 +1,4 @@
+#!/bin/bash
+set -o errexit
+
+PASSAGE_IDENTITIES_FILE=~/.passage/private/identities PASSAGE_DIR=~/.passage/private/store PASSAGE_EXTENSIONS_DIR=~/.passage/private/extensions passage "$@"

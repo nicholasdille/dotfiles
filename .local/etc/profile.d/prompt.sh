@@ -21,4 +21,5 @@ fi
 if [[ "${TERM_PROGRAM}" == "vscode" ]] || [[ "${ASCIINEMA_REC}" == "1" ]]; then
     PS1="\$ "
     unset PROMPT_COMMAND
+    source <(direnv hook bash)
 fi

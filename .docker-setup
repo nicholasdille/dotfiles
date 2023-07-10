@@ -28,4 +28,5 @@ oras
 syft
 grype
 trivy
+scout
 

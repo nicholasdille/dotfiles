@@ -1,11 +1,10 @@
 [push]
     default = simple
 [credential]
-    helper = store
+    helper = cache
 [user]
     name = Nicholas Dille
-[commit]
-    gpgsign = true
+
 [includeif "hasconfig:remote.*.url:https://github.com/nicholasdille/*"]
     path = .gitconfig-private
 [includeIf "hasconfig:remote.*.url:https://gitlab.com/nicholasdille/**"]
@@ -16,6 +15,16 @@
     path = .gitconfig-haufe
 [includeIf "hasconfig:remote.*.url:https://gitlab.com/dos-devinfra/**"]
     path = .gitconfig-haufe
+
+[credential "https://github.com/nicholasdille"]
+    helper = "!pp github-nicholasdille"
+    useHttpPath = true
+[credential "https://github.com/uniget-org"]
+    helper = "!pp github-uniget"
+    useHttpPath = true
+[credential "https://gitlab.haufedev.systems"]
+    helper = "!ph gitlab-live"
+
 [alias]
     lg  = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
     lgg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
