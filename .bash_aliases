@@ -16,4 +16,3 @@ alias cpsh="config push"
 alias cpll="config pull"
 
 alias kga="kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found"
-alias docker-setup="docker run -it --rm --pid=host --privileged ubuntu:22.04 nsenter -t 1 -a docker-setup"

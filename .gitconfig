@@ -1,11 +1,14 @@
 [push]
     default = simple
+    autoSetupRemote = true
 [credential]
     helper = cache
 [user]
     name = Nicholas Dille
 
 [includeif "hasconfig:remote.*.url:https://github.com/nicholasdille/*"]
+    path = .gitconfig-private
+[includeif "hasconfig:remote.*.url:https://github.com/uniget-org/*"]
     path = .gitconfig-private
 [includeIf "hasconfig:remote.*.url:https://gitlab.com/nicholasdille/**"]
     path = .gitconfig-private
