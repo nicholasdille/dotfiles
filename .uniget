@@ -28,5 +28,8 @@ oras
 syft
 grype
 trivy
-scout
+docker-scout
+kind
+k3d
+vexctl
 
