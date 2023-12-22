@@ -2,7 +2,7 @@
     default = simple
     autoSetupRemote = true
 [credential]
-    helper = cache
+    helper = cache --timeout=3600
 [user]
     name = Nicholas Dille
 
