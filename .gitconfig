@@ -25,6 +25,8 @@
 [credential "https://github.com/uniget-org"]
     helper = "!pp git-github-uniget"
     useHttpPath = true
+[credential "https://gitlab.com"]
+    helper = "!pp git-gitlabcom"
 [credential "https://gitlab.haufedev.systems"]
     helper = "!ph git-gitlab-live"
 
