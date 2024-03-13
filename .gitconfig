@@ -29,6 +29,8 @@
     helper = "!pp git-gitlabcom"
 [credential "https://gitlab.haufedev.systems"]
     helper = "!ph git-gitlab-live"
+[credential "https://gitlab-qa.haufedev.systems"]
+    helper = "!ph git-gitlab-qa"
 
 [alias]
     lg  = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
