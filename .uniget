@@ -3,7 +3,6 @@ powerline-go
 direnv
 mcfly
 navi
-gojq
 yq
 
 # wsl
