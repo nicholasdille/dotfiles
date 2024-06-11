@@ -25,8 +25,12 @@
 [credential "https://github.com/uniget-org"]
     helper = "!pp git-github-uniget"
     useHttpPath = true
+[credential "https://gitlab.com/dos-devinfra"]
+    helper = "!ph git-gitlabcom-dos"
+    useHttpPath = true
 [credential "https://gitlab.com"]
     helper = "!pp git-gitlabcom"
+    useHttpPath = true
 [credential "https://gitlab.haufedev.systems"]
     helper = "!ph git-gitlab-live"
 [credential "https://gitlab-qa.haufedev.systems"]

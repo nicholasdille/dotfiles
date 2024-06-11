@@ -41,3 +41,12 @@ if [ -d ~/.local/etc/bash_completion.d ]; then
       fi
     done
 fi
+
+if [ -d ~/.local/share/bash-completion/completions/ ]; then
+    for FILE in ~/.local/share/bash-completion/completions/* ; do
+      if test -f "${FILE}"; then
+          #echo "Sourcing completion ${FILE}"
+          source "${FILE}"
+      fi
+    done
+fi
