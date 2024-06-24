@@ -5,7 +5,7 @@ if test -n "${WSL_DISTRO_NAME}" && test "${HOSTNAME:0:2}" == "HG"; then
     PATH="${PATH:+${PATH}:}/mnt/c/Windows/System32/WindowsPowerShell/v1.0"
 
     MIN_MTU="$(
-        powershell.exe -command "Get-NetIPInterface | Select-Object -ExpandProperty NlMtu | Measure-Object -Minimum | Select-Object -ExpandProperty Minimum" \
+        powershell.exe -command "Get-NetIPInterface | Where-Object ConnectionState -eq "Connected" | Select-Object -ExpandProperty NlMtu | Measure-Object -Minimum | Select-Object -ExpandProperty Minimum" \
         | tr -d '\r'
     )"
     CUR_MTU="$(
