@@ -14,7 +14,7 @@ if test -n "${WSL_DISTRO_NAME}" && test "${HOSTNAME:0:2}" == "HG"; then
         | cut -d' ' -f5
     )"
 
-    if test "${CUR_MTU}" -ne "${MIN_MTU}"; then
+    if test "${CUR_MTU}" -gt ${MIN_MTU}"; then
         echo "Setting MTU on eth0  (${CUR_MTU} -> ${MIN_MTU}). Sudo required."
         sudo ip link set dev eth0 mtu ${MIN_MTU}
     fi
@@ -24,7 +24,7 @@ if test -n "${WSL_DISTRO_NAME}" && test "${HOSTNAME:0:2}" == "HG"; then
         | grep mtu \
         | cut -d' ' -f5
     )"
-    if test "${DOCKER_MTU}" -ne "${MIN_MTU}"; then
+    if test "${DOCKER_MTU}" -gt "${MIN_MTU}"; then
         echo "Fixing Docker MTU (${DOCKER_MTU} -> ${MIN_MTU}). Sudo required."
         sudo cp /etc/docker/daemon.json /etc/docker/daemon.json.bak
         sudo jq --arg mtu "${MIN_MTU}" '.mtu = ($mtu | tonumber) | ."network-control-plane-mtu" = ($mtu | tonumber) | ."default-network-opts".bridge."com.docker.network.driver.mtu" = $mtu' "/etc/docker/daemon.json.bak" | sudo tee "/etc/docker/daemon.json" >/dev/null
