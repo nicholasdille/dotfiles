@@ -20,6 +20,7 @@ regclient
 helm
 kubectl
 kubeswitch
+clusterctl
 cosign
 gitsign
 dive

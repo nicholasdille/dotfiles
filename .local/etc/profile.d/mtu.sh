@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if test -n "${WSL_DISTRO_NAME}" && test "${HOSTNAME:0:2}" == "HG"; then
+if false && test -n "${WSL_DISTRO_NAME}" && test "${HOSTNAME:0:2}" == "HG"; then
 
     PATH="${PATH:+${PATH}:}/mnt/c/Windows/System32/WindowsPowerShell/v1.0"
 
