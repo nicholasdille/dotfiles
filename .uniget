@@ -11,25 +11,60 @@ win-gpg-agent
 
 # cloud
 hcloud
+packer
 
 # containerization
 docker
 docker-compose
 buildx
 regclient
+dive
+oras
+
+# kubernetes
 helm
 kubectl
 kubeswitch
 clusterctl
+cilium
+kind
+k3d
+kubectl-oidc-login
+logcli
+mimirtool
+promql-cli
+promtool
+
+# security
 cosign
-gitsign
-dive
-oras
 syft
 grype
 trivy
 docker-scout
-kind
-k3d
 vexctl
+age
+passage
 
+# development
+gh
+gitsign
+git-lfs
+glab
+glow
+go
+golangci-lint
+goreleaser
+jless
+jq
+jwt
+make
+mkdocs
+nodejs
+presenterm
+rare
+semver
+socat
+wslu
+xdg-utils
+xmlstarlet
+yq
