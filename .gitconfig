@@ -2,9 +2,10 @@
     default = simple
     autoSetupRemote = true
 [credential]
-    helper = cache --timeout=3600
+	helper = store
 [user]
-    name = Nicholas Dille
+	name = seat1
+	email = seat1@.localhost
 
 [includeif "hasconfig:remote.*.url:https://github.com/nicholasdille/*"]
     path = .gitconfig-private
@@ -27,6 +28,9 @@
     useHttpPath = true
 [credential "https://gitlab.com/dos-devinfra"]
     helper = "!ph git-gitlabcom-dos"
+    useHttpPath = true
+[credential "https://gitlab.com/uniget-org"]
+    helper = "!pp git-gitlab-uniget-cli"
     useHttpPath = true
 [credential "https://gitlab.com"]
     helper = "!pp git-gitlabcom"
