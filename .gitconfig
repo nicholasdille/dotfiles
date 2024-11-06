@@ -2,10 +2,11 @@
     default = simple
     autoSetupRemote = true
 [credential]
-	helper = store
+    helper = store
 [user]
-	name = seat1
-	email = seat1@.localhost
+    name = Nicholas Dille
+[init]
+    defaultBranch = main
 
 [includeif "hasconfig:remote.*.url:https://github.com/nicholasdille/*"]
     path = .gitconfig-private
@@ -25,6 +26,9 @@
     useHttpPath = true
 [credential "https://github.com/uniget-org"]
     helper = "!pp git-github-uniget"
+    useHttpPath = true
+[credential "https://gitlab.com/uniget-org"]
+    helper = "!pp git-gitlab-uniget"
     useHttpPath = true
 [credential "https://gitlab.com/dos-devinfra"]
     helper = "!ph git-gitlabcom-dos"
