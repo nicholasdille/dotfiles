@@ -44,14 +44,17 @@
         "**/*.sass",
         "**/*.ts"
     ],
+    "runme.terminal.fontFamily": "Cascade Code PL",
     "scm.alwaysShowRepositories": true,
     "terminal.integrated.enableImages": true,
     "terminal.integrated.fontFamily": "Cascadia Code PL",
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.gpuAcceleration": "on",
-    "workbench.productIconTheme": "material-product-icons",
-    "workbench.startupEditor": "newUntitledFile",
     "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.md": "default",
         "*.runme.md": "runme"
     },
+    "workbench.productIconTheme": "material-product-icons",
+    "workbench.startupEditor": "newUntitledFile"
 }
