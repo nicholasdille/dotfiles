@@ -44,7 +44,6 @@
         "**/*.sass",
         "**/*.ts"
     ],
-    "runme.terminal.fontFamily": "Cascade Code PL",
     "scm.alwaysShowRepositories": true,
     "terminal.integrated.enableImages": true,
     "terminal.integrated.fontFamily": "Cascadia Code PL",
