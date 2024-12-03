@@ -57,3 +57,11 @@ curl -fI 'https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=e
 ### Tabby
 
 See [homepage](https://tabby.sh/)
+
+### Cryptomator
+
+```shell
+sudo add-apt-repository ppa:sebastian-stenzel/cryptomator
+sudo apt update
+sudo apt install cryptomator
+```
