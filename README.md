@@ -39,7 +39,12 @@ See [official documentation](https://keepassxc.org/docs/KeePassXC_GettingStarted
 
 ### Firefox
 
-See [official documentation](https://support.mozilla.org/kb/firefox-unter-linux-installieren)
+```shell
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A6DCF7707EBC211F
+sudo apt-add-repository "deb http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu focal main"
+sudo apt update
+sudo apt install firefox
+``` 
 
 Or maybe download directly from `https://download-installer.cdn.mozilla.net/pub/firefox/releases/{version}/linux-x86_64/en-US/firefox-{version}.tar.bz2`
 
