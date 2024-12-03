@@ -21,3 +21,24 @@ As soon as you start a login shell for the first time, you will see the first la
 To create a new distribution, download a root filesystem, e.g. [Ubuntu Hirsute](https://cloud-images.ubuntu.com/hirsute/current/), then import it using `wsl.exe --import my_name c:\wsl\ubuntu ~\Downloads\hirsute-server-cloudimg-amd64-wsl.rootfs.tar.gz`. Afterwards set a username as documented [here](https://docs.microsoft.com/en-us/windows/wsl/wsl-config#user).
 
 For pretty prompts (based on powerline) you need to install a proper terminal emulator and fonts. I recommend the [Windows Terminal](https://github.com/microsoft/terminal/releases) with [Cascadia Code](https://github.com/microsoft/cascadia-code).
+
+## Linux native
+
+### Visual Studio Code
+
+```shell
+uniget install vscode-cli
+echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections
+```
+
+### KeePassXC
+
+See [official documentation](https://keepassxc.org/docs/KeePassXC_GettingStarted#_linux)
+
+### Firefox
+
+See [official documentation](https://support.mozilla.org/kb/firefox-unter-linux-installieren)
+
+### Tabby
+
+See [homepage](https://tabby.sh/)
