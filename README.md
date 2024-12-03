@@ -62,6 +62,8 @@ curl -fI 'https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=e
 
 See [homepage](https://tabby.sh/)
 
+Update from [releases](https://github.com/Eugeny/tabby/releases)
+
 ### Cryptomator
 
 ```shell
