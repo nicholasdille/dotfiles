@@ -31,6 +31,8 @@ uniget install vscode-cli
 echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections
 ```
 
+Or maybe install directly from `https://update.code.visualstudio.com/{version}/linux-x64/stable`
+
 ### KeePassXC
 
 See [official documentation](https://keepassxc.org/docs/KeePassXC_GettingStarted#_linux)
