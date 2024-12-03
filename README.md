@@ -41,6 +41,14 @@ See [official documentation](https://keepassxc.org/docs/KeePassXC_GettingStarted
 
 See [official documentation](https://support.mozilla.org/kb/firefox-unter-linux-installieren)
 
+Or maybe download directly from `https://download-installer.cdn.mozilla.net/pub/firefox/releases/{version}/linux-x86_64/en-US/firefox-{version}.tar.bz2`
+
+Find latest version:
+
+```shell
+curl -fI 'https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US' | grep -o 'firefox-[0-9.]\+[0-9]
+```
+
 ### Tabby
 
 See [homepage](https://tabby.sh/)
