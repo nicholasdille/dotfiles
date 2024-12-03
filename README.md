@@ -35,7 +35,11 @@ Or maybe install directly from `https://update.code.visualstudio.com/{version}/l
 
 ### KeePassXC
 
-See [official documentation](https://keepassxc.org/docs/KeePassXC_GettingStarted#_linux)
+```shell
+sudo add-apt-repository ppa:phoerious/keepassxc
+sudo apt update
+sudo apt install keepassxc
+```
 
 ### Firefox
 
