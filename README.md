@@ -24,6 +24,14 @@ For pretty prompts (based on powerline) you need to install a proper terminal em
 
 ## Linux native
 
+### git
+
+```shell
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt update
+sudo apt install git
+```
+
 ### Visual Studio Code
 
 ```shell
