@@ -79,3 +79,25 @@ sudo add-apt-repository ppa:sebastian-stenzel/cryptomator
 sudo apt update
 sudo apt install cryptomator
 ```
+
+### Hibernate
+
+1. Configure a swap file or partition
+1. Configure `grub` and `initramfs`
+1. Test with `systemctl hibernate`
+1. Create a policy:
+
+    ```shell
+    $ cat /etc/polkit-1/localauthority/50-local.d/hibernate.pkla
+    [Enable hibernate in upower]
+    Identity=unix-user:*
+    Action=org.freedesktop.upower.hibernate
+    ResultActive=yes
+    
+    [Enable hibernate in logind]
+    Identity=unix-user:*
+    Action=org.freedesktop.login1.hibernate;org.freedesktop.login1.handle-hibernate-key;org.freedesktop.login1;org.freedesktop.login1.hibernate-multiple-sessions;org.freedesktop.login1.hibernate-ignore-inhibit
+    ResultActive=yes
+    ```
+    
+1. Install [Hibernate Status Button](https://extensions.gnome.org/extension/755/hibernate-status-button/)
