@@ -45,14 +45,11 @@
 [credential "https://github.com/uniget-org"]
     helper = "!pp git-github-uniget"
     useHttpPath = true
-[credential "https://gitlab.com/uniget-org"]
-    helper = "!pp git-gitlab-uniget-cli"
-    useHttpPath = true
 [credential "https://gitlab.com/dos-devinfra"]
     helper = "!ph git-gitlabcom-dos"
     useHttpPath = true
 [credential "https://gitlab.com/uniget-org"]
-    helper = "!pp git-gitlab-uniget-cli"
+    helper = "!pp git-gitlabcom"
     useHttpPath = true
 [credential "https://gitlab.com"]
     helper = "!pp git-gitlabcom"
@@ -66,8 +63,3 @@
     lg  = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
     lgg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process

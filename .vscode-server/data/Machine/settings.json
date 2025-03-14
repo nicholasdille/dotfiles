@@ -47,7 +47,6 @@
     "scm.alwaysShowRepositories": true,
     "terminal.integrated.enableImages": true,
     "terminal.integrated.fontFamily": "Cascadia Code PL",
-    "terminal.integrated.fontSize": 16,
     "terminal.integrated.gpuAcceleration": "on",
     "workbench.editorAssociations": {
         "*.copilotmd": "vscode.markdown.preview.editor",
