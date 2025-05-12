@@ -1,0 +1,60 @@
+format = """\
+[](bg:black fg:bright-green)\
+$os\
+$username\
+[](fg:bright-green bg:bright-black)\
+$directory\
+[](fg:bright-black bg:bright-yellow)\
+$git_branch\
+$git_status\
+[](fg:bright-yellow bg:bright-blue)\
+$kubernetes\
+[](fg:bright-blue) \
+"""
+
+[os]
+disabled = false
+format = "[$symbol]($style)"
+style = "bg:bright-green"
+
+[os.symbols]
+Ubuntu = ""
+
+[username]
+disabled = false
+show_always = true
+format = "[ $user ]($style)"
+style_user = "fg:black bg:bright-green"
+style_root = "back bold"
+
+[directory]
+format = "[ 󰙅 $path ]($style)"
+style = "fg:white bg:bright-black"
+
+[kubernetes]
+disabled = false
+symbol = "⎈"
+#format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
+format = '[ $symbol $context( \($namespace\))]($style)'
+style = "fg:black bg:bright-blue"
+
+[git_branch]
+format = '[ $symbol$branch(:$remote_branch) ]($style)'
+symbol = " "
+style = "fg:black bg:bright-yellow"
+
+[git_status]
+format = '[$all_status ]($style)'
+style = "fg:black bg:bright-yellow"
+conflicted = "󱐋"
+up_to_date = ""
+untracked = ""
+stashed = ""
+modified = ""
+deleted = ""
+renamed = ""
+
+[character]
+success_symbol = '[ ](bg:bright-black)'
+error_symbol = '[ ✗](fg:bright-red bg:bright-black)'
+

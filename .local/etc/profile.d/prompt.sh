@@ -1,4 +1,7 @@
-if type powerline-go >/dev/null 2>&1; then
+if type starship >/dev/null 2>&1; then
+    eval "$(starship init bash)"
+
+elif type powerline-go >/dev/null 2>&1; then
     function _update_ps1() {
         PS1="$(echo -ne "\033]0;$(basename "${PWD}")\a"; powerline-go -theme ${HOME}/.local/etc/powerline-go-theme.json -error $? -modules exit,ssh,host,user,cwd,git,docker-context,kube,jobs -priority exit,ssh,host,user,cwd,jobs,git,kube,docker-context -newline -cwd-mode dironly -hostname-only-if-ssh)"
     }
