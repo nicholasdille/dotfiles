@@ -1,0 +1,58 @@
+{
+    "[go]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+        "editor.formatOnSave": true
+    },
+    "[yaml]": {
+        "editor.wordBasedSuggestions": "off"
+    },
+    "editor.codeActionsOnSave": {},
+    "editor.fontFamily": "Cascadia Code PL, Consolas, 'Courier New', monospace",
+    "editor.inlineSuggest.enabled": true,
+    "editor.largeFileOptimizations": false,
+    "editor.minimap.enabled": false,
+    "editor.parameterHints.enabled": false,
+    "explorer.confirmDragAndDrop": false,
+    "files.autoSave": "off",
+    "git.allowForcePush": true,
+    "git.autoStash": true,
+    "git.autofetch": true,
+    "git.autofetchPeriod": 300,
+    "git.confirmForcePush": false,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "git.ignoreRebaseWarning": true,
+    "github.copilot.enable": {
+        "*": true,
+        "markdown": true,
+        "plaintext": false,
+        "scminput": false
+    },
+    "go.alternateTools": {},
+    "go.lintTool": "golangci-lint",
+    "go.showWelcome": false,
+    "go.toolsManagement.autoUpdate": true,
+    "go.useLanguageServer": true,
+    "hediet.vscode-drawio.codeLinkActivated": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "liveServer.settings.donotVerifyTags": true,
+    "liveServer.settings.ignoreFiles": [
+        ".vscode/**",
+        "**/*.scss",
+        "**/*.sass",
+        "**/*.ts"
+    ],
+    "scm.alwaysShowRepositories": true,
+    "terminal.integrated.enableImages": true,
+    "terminal.integrated.fontFamily": "Cascadia Code PL",
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.gpuAcceleration": "on",
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.md": "default",
+        "*.runme.md": "runme"
+    },
+    "workbench.startupEditor": "newUntitledFile"
+}
