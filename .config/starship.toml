@@ -28,7 +28,7 @@ style_user = "fg:black bg:bright-green"
 style_root = "back bold"
 
 [directory]
-format = "[ 󰙅 $path ]($style)"
+format = "[  $path ]($style)"
 style = "fg:white bg:bright-black"
 
 [kubernetes]
