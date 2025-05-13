@@ -1,6 +1,5 @@
 format = """\
 [](bg:black fg:bright-green)\
-$os\
 $username\
 [](fg:bright-green bg:bright-black)\
 $directory\
@@ -12,30 +11,26 @@ $kubernetes\
 [](fg:bright-blue) \
 """
 
-[os]
-disabled = false
-format = "[$symbol]($style)"
-style = "bg:bright-green"
-
-[os.symbols]
-Ubuntu = ""
-
 [username]
 disabled = false
 show_always = true
-format = "[ $user ]($style)"
+format = "[$user ]($style)"
 style_user = "fg:black bg:bright-green"
 style_root = "back bold"
 
 [directory]
-format = "[  $path ]($style)"
+disabled = false
+truncation_length = 1
+truncation_symbol = "󰇘/"
+#format = "[  $path ]($style)"
+format = "[ $path ]($style)"
 style = "fg:white bg:bright-black"
 
 [kubernetes]
 disabled = false
 symbol = "⎈"
 #format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
-format = '[ $symbol $context( \($namespace\))]($style)'
+format = '[ $symbol $context( \($namespace\)) ]($style)'
 style = "fg:black bg:bright-blue"
 
 [git_branch]
