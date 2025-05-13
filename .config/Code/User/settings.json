@@ -54,5 +54,6 @@
         "*.md": "default",
         "*.runme.md": "runme"
     },
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "hediet.vscode-drawio.appearance": "automatic"
 }
