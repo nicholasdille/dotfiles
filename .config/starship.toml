@@ -39,15 +39,18 @@ symbol = " "
 style = "fg:black bg:bright-yellow"
 
 [git_status]
-format = '[$all_status ]($style)'
+format = '[$ahead_behind $all_status ]($style)'
 style = "fg:black bg:bright-yellow"
-conflicted = ""
-up_to_date = ""
-untracked = ""
-stashed = ""
-modified = ""
-deleted = ""
-renamed = ""
+conflicted = "0" #""
+ahead = "⇡"
+behind = "⇣"
+diverged = "V" #"󰓁" #"⇕"
+up_to_date = "" #""
+untracked = "+" #""
+stashed = "$" #""
+modified = "!" #""
+deleted = "-" #""
+renamed = "»" #""
 
 [character]
 success_symbol = '[ ](bg:bright-black)'
