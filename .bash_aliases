@@ -10,7 +10,6 @@ alias gpll="git pull"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cs="config status -s"
 alias ca="config add"
-alias caa="config add --all"
 alias cc="config commit -m"
 alias cpsh="config push"
 alias cpll="config pull"
