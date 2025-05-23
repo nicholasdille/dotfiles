@@ -41,14 +41,14 @@ style = "fg:black bg:bright-yellow"
 [git_status]
 format = '[$ahead_behind $all_status ]($style)'
 style = "fg:black bg:bright-yellow"
-conflicted = "0" #""
+conflicted = "!" #""
 ahead = "⇡"
 behind = "⇣"
 diverged = "X" #"V" #"󰓁" #"⇕"
 up_to_date = "" #""
-untracked = "+" #""
+untracked = "?" #""
 stashed = "$" #""
-modified = "!" #""
+modified = "+" #""
 deleted = "-" #""
 renamed = "»" #""
 
