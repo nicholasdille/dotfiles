@@ -1,56 +1,51 @@
 format = """\
-[](bg:black fg:bright-green)\
+[](fg:240)\
 $username\
-[](fg:bright-green bg:bright-black)\
 $directory\
-[](fg:bright-black bg:bright-yellow)\
 $git_branch\
 $git_status\
-[](fg:bright-yellow bg:bright-blue)\
 $kubernetes\
-[](fg:bright-blue) \
+[ ](bg:bright-black)[](fg:bright-black) \
 """
 
 [username]
 disabled = false
 show_always = true
 format = "[$user ]($style)"
-style_user = "fg:black bg:bright-green"
-style_root = "back bold"
+style_user = "fg:250 bg:240"
+style_root = "bg:124"
 
 [directory]
 disabled = false
 truncation_length = 1
 truncation_symbol = "󰇘/"
-#format = "[  $path ]($style)"
 format = "[ $path ]($style)"
-style = "fg:white bg:bright-black"
-
-[kubernetes]
-disabled = false
-symbol = "⎈"
-#format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
-format = '[ $symbol $context( \($namespace\)) ]($style)'
-style = "fg:black bg:bright-blue"
+style = "fg:15 bg:237"
 
 [git_branch]
 format = '[ $symbol$branch(:$remote_branch) ]($style)'
 symbol = " "
-style = "fg:black bg:bright-yellow"
+style = "fg:15 bg:161"
 
 [git_status]
 format = '[$ahead_behind $all_status ]($style)'
-style = "fg:black bg:bright-yellow"
+style = "fg:15 bg:130"
 conflicted = "!" #""
-ahead = "⇡"
-behind = "⇣"
-diverged = "X" #"V" #"󰓁" #"⇕"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "X⇡${ahead_count}⇣${behind_count}" #"V" #"󰓁" #"⇕"
 up_to_date = "" #""
-untracked = "?" #""
+untracked = "?${count}" #""
 stashed = "$$" #""
-modified = "+" #""
-deleted = "-" #""
-renamed = "»" #""
+modified = "+${count}" #""
+deleted = "-${count}" #""
+renamed = "»${count}" #""
+
+[kubernetes]
+disabled = false
+symbol = "⎈"
+format = '[ $symbol $context ](fg:117 bg:21)[ $namespace ](fg:117 bg:26)'
+style = ""
 
 [character]
 success_symbol = '[ ](bg:bright-black)'
