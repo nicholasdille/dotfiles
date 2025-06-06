@@ -46,7 +46,6 @@
     ],
     "scm.alwaysShowRepositories": true,
     "terminal.integrated.enableImages": true,
-    "terminal.integrated.fontFamily": "Cascadia Code PL",
     "terminal.integrated.gpuAcceleration": "on",
     "workbench.editorAssociations": {
         "*.copilotmd": "vscode.markdown.preview.editor",
@@ -54,5 +53,6 @@
         "*.runme.md": "runme"
     },
     "workbench.productIconTheme": "material-product-icons",
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono"
 }
