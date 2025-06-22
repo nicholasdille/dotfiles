@@ -19,6 +19,7 @@ style_root = "bg:124"
 disabled = false
 truncation_length = 1
 truncation_symbol = "󰇘/"
+#format = "[  $path ]($style)"
 format = "[ $path ]($style)"
 style = "fg:15 bg:237"
 
