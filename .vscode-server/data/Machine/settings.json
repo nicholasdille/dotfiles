@@ -26,8 +26,8 @@
     "git.ignoreRebaseWarning": true,
     "github.copilot.enable": {
         "*": true,
-        "markdown": true,
         "plaintext": false,
+        "markdown": true,
         "scminput": false
     },
     "go.alternateTools": {},

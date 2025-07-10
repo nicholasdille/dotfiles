@@ -3,7 +3,7 @@
 	autoSetupRemote = true
 	followTags = true
 [credential]
-	helper = store
+	helper = cache --timeout 21600
 [user]
 	name = Nicholas Dille
 [init]
@@ -40,22 +40,27 @@
     path = .gitconfig-haufe
 
 [credential "https://github.com/nicholasdille"]
-    helper = "!pp git-github-nicholasdille"
+    #helper = "!pp git-github-nicholasdille"
     useHttpPath = true
+    helper = oauth
 [credential "https://github.com/uniget-org"]
-    helper = "!pp git-github-uniget"
+    #helper = "!pp git-github-uniget"
     useHttpPath = true
+    helper = oauth
 [credential "https://gitlab.com/dos-devinfra"]
     helper = "!ph git-gitlabcom-dos"
     useHttpPath = true
 [credential "https://gitlab.com/uniget-org"]
-    helper = "!pp git-gitlabcom"
+    #helper = "!pp git-gitlabcom"
     useHttpPath = true
+    helper = oauth
 [credential "https://gitlab.com"]
     helper = "!pp git-gitlabcom"
     useHttpPath = true
 [credential "https://gitlab.haufedev.systems"]
-    helper = "!ph git-gitlab-live"
+    #helper = "!ph git-gitlab-live"
+    helper = oauth
+    oauthclientId = "f716135ae08b09efdf5b8bf0767b1833760296bdf6d58a63abd59fc44b58fcad"
 [credential "https://gitlab-qa.haufedev.systems"]
     helper = "!ph git-gitlab-qa"
 
