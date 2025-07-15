@@ -32,6 +32,8 @@
     path = .gitconfig-private
 [includeIf "hasconfig:remote.*.url:https://gitlab.com/uniget-org/**"]
     path = .gitconfig-private
+[includeIf "hasconfig:remote.*.url:https://codeberg.org/**"]
+    path = .gitconfig-private
 [includeIf "hasconfig:remote.*.url:https://gitlab.haufedev.systems/**"]
     path = .gitconfig-haufe
 [includeIf "hasconfig:remote.*.url:https://dillen@gitlab.haufedev.systems/**"]
@@ -63,6 +65,8 @@
     oauthclientId = "f716135ae08b09efdf5b8bf0767b1833760296bdf6d58a63abd59fc44b58fcad"
 [credential "https://gitlab-qa.haufedev.systems"]
     helper = "!ph git-gitlab-qa"
+[credential "https://codeberg.org"]
+    helper = "!pp git-codeberg"
 
 [alias]
     lg  = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
