@@ -55,5 +55,10 @@
         "*.runme.md": "runme"
     },
     "workbench.startupEditor": "newUntitledFile",
-    "hediet.vscode-drawio.appearance": "automatic"
+    "hediet.vscode-drawio.appearance": "automatic",
+    "docker.extension.enableComposeLanguageServer": false,
+    "docker.lsp.experimental.scout.criticalHighVulnerabilities": false,
+    "docker.lsp.experimental.scout.vulnerabilities": false,
+    "docker.lsp.experimental.vulnerabilityScanning": false,
+    "docker.lsp.telemetry": "error"
 }
