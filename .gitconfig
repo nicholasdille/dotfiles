@@ -56,9 +56,10 @@
     #helper = "!pp git-gitlabcom"
     useHttpPath = true
     helper = oauth
-[credential "https://gitlab.com"]
-    helper = "!pp git-gitlabcom"
+[credential "https://gitlab.com/nicholasdille"]
+    #helper = "!pp git-gitlabcom"
     useHttpPath = true
+    helper = oauth
 [credential "https://gitlab.haufedev.systems"]
     #helper = "!ph git-gitlab-live"
     helper = oauth
