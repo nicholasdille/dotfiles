@@ -54,5 +54,8 @@
     },
     "workbench.productIconTheme": "material-product-icons",
     "workbench.startupEditor": "newUntitledFile",
-    "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono"
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
+    "security.allowedUNCHosts": [
+        "wsl.localhost"
+    ]
 }
