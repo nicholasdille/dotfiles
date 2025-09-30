@@ -2,8 +2,6 @@
 	default = simple
 	autoSetupRemote = true
 	followTags = true
-[credential]
-	helper = cache --timeout 21600
 [user]
 	name = Nicholas Dille
 [init]
@@ -43,24 +41,31 @@
 
 [credential "https://github.com/nicholasdille"]
     useHttpPath = true
+    helper = cache --timeout 21600
     helper = oauth
 [credential "https://github.com/uniget-org"]
     useHttpPath = true
+    helper = cache --timeout 21600
     helper = oauth
 [credential "https://gitlab.com/dos-devinfra"]
     helper = "!ph git-gitlabcom-dos"
     useHttpPath = true
 [credential "https://gitlab.com/uniget-org"]
     useHttpPath = true
+    helper = cache --timeout 21600
     helper = oauth
 [credential "https://gitlab.com/nicholasdille"]
     #helper = "!pp git-gitlabcom"
     useHttpPath = true
+    helper = cache --timeout 21600
     helper = oauth
 [credential "https://gitlab.haufedev.systems"]
     helper = cache --timeout 21600
     helper = oauth
-    oauthclientId = "f716135ae08b09efdf5b8bf0767b1833760296bdf6d58a63abd59fc44b58fcad"
+    # personal
+    #oauthclientId = "f716135ae08b09efdf5b8bf0767b1833760296bdf6d58a63abd59fc44b58fcad"
+    # global
+    oauthclientId = "7badd67dd0088c40ca163f1adbcdd98ac16f518e12662557c95dbdcaa746217a"
     oauthScopes = "read_repository write_repository"
     oauthAuthURL = /oauth/authorize
     oauthTokenURL = /oauth/token
