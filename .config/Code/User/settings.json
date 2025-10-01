@@ -60,5 +60,14 @@
     "docker.lsp.experimental.scout.criticalHighVulnerabilities": false,
     "docker.lsp.experimental.scout.vulnerabilities": false,
     "docker.lsp.experimental.vulnerabilityScanning": false,
-    "docker.lsp.telemetry": "error"
+    "docker.lsp.telemetry": "error",
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    }
 }
