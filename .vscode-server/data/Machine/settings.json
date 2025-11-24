@@ -50,7 +50,8 @@
     "workbench.editorAssociations": {
         "*.copilotmd": "vscode.markdown.preview.editor",
         "*.md": "default",
-        "*.runme.md": "runme"
+        "*.runme.md": "runme",
+        "*.runn.md": "runme"
     },
     "workbench.productIconTheme": "material-product-icons",
     "workbench.startupEditor": "newUntitledFile",

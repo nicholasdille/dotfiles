@@ -62,10 +62,7 @@
 [credential "https://gitlab.haufedev.systems"]
     helper = cache --timeout 21600
     helper = oauth
-    # personal
-    #oauthclientId = "f716135ae08b09efdf5b8bf0767b1833760296bdf6d58a63abd59fc44b58fcad"
-    # global
-    oauthclientId = "7badd67dd0088c40ca163f1adbcdd98ac16f518e12662557c95dbdcaa746217a"
+    oauthclientId = "e470614e4f062cf635e90e02152f5e8d4c010e6298433baa740b6f17adbb6079"
     oauthScopes = "read_repository write_repository"
     oauthAuthURL = /oauth/authorize
     oauthTokenURL = /oauth/token
