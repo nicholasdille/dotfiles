@@ -1,0 +1,32 @@
+services:
+  windows:
+    # https://github.com/dockur/windows
+    image: dockurr/windows
+    container_name: windows
+    environment:
+      # version
+      VERSION: "11"
+      # resources
+      RAM_SIZE: "8G"
+      CPU_CORES: "4"
+      # credentials
+      USERNAME: "bill"
+      PASSWORD: "gates"
+      # language
+      LANGUAGE: "German"
+      # keyboard
+      REGION: "de-DE"
+      KEYBOARD: "de-DE"
+    devices:
+    - /dev/kvm
+    - /dev/net/tun
+    cap_add:
+    - NET_ADMIN
+    ports:
+    - 127.0.0.1:8006:8006
+    - 127.0.0.1:3389:3389/tcp
+    - 127.0.0.1:3389:3389/udp
+    volumes:
+    - $HOME/.local/libexec/windows:/storage
+    restart: always
+    stop_grace_period: 2m
