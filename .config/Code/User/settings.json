@@ -69,5 +69,6 @@
     },
     "[github-actions-workflow]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
-    }
+    },
+    "runme.telemetry.enabled": false
 }
