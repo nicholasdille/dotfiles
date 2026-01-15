@@ -21,47 +21,18 @@
 	conflictstyle = zdiff3
 [pull]
 	rebase = true
+[credential]
+    helper = cache --timeout 21600
+    helper = oauth
 
-[includeif "hasconfig:remote.*.url:https://github.com/nicholasdille/*"]
-    path = .gitconfig-private
-[includeif "hasconfig:remote.*.url:https://github.com/uniget-org/*"]
-    path = .gitconfig-private
-[includeIf "hasconfig:remote.*.url:https://gitlab.com/nicholasdille/**"]
-    path = .gitconfig-private
-[includeIf "hasconfig:remote.*.url:https://gitlab.com/uniget-org/**"]
-    path = .gitconfig-private
-[includeIf "hasconfig:remote.*.url:https://codeberg.org/**"]
-    path = .gitconfig-private
-[includeIf "hasconfig:remote.*.url:https://gitlab.haufedev.systems/**"]
-    path = .gitconfig-haufe
-[includeIf "hasconfig:remote.*.url:https://dillen@gitlab.haufedev.systems/**"]
-    path = .gitconfig-haufe
-[includeIf "hasconfig:remote.*.url:https://gitlab.com/dos-devinfra/**"]
-    path = .gitconfig-haufe
+[includeIf "gitdir:~/haufe/"]
+    path = ~/haufe/gitconfig
+[includeIf "gitdir:~/private/"]
+    path = ~/private/gitconfig
 
-[credential "https://github.com/nicholasdille"]
-    useHttpPath = true
-    helper = cache --timeout 21600
-    helper = oauth
-[credential "https://github.com/uniget-org"]
-    useHttpPath = true
-    helper = cache --timeout 21600
-    helper = oauth
-[credential "https://gitlab.com/dos-devinfra"]
-    helper = "!ph git-gitlabcom-dos"
-    useHttpPath = true
-[credential "https://gitlab.com/uniget-org"]
-    useHttpPath = true
-    helper = cache --timeout 21600
-    helper = oauth
-[credential "https://gitlab.com/nicholasdille"]
-    #helper = "!pp git-gitlabcom"
-    useHttpPath = true
-    helper = cache --timeout 21600
-    helper = oauth
 [credential "https://gitlab.haufedev.systems"]
     helper = cache --timeout 21600
-    helper = oauth
+    helper = oauth -verbose
     oauthclientId = "e470614e4f062cf635e90e02152f5e8d4c010e6298433baa740b6f17adbb6079"
     oauthScopes = "read_repository write_repository"
     oauthAuthURL = /oauth/authorize
