@@ -29,6 +29,10 @@
     path = ~/haufe/gitconfig
 [includeIf "gitdir:~/private/"]
     path = ~/private/gitconfig
+[includeIf "gitdir:~/.cfg/"]
+    path = ~/private/gitconfig
+[includeIf "gitdir:~/.passage/"]
+    path = ~/private/gitconfig
 
 [credential "https://gitlab.haufedev.systems"]
     helper = cache --timeout 21600
