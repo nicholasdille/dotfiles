@@ -29,7 +29,7 @@
     path = ~/haufe/gitconfig
 [includeIf "gitdir:~/private/"]
     path = ~/private/gitconfig
-[includeIf "gitdir:~/.cfg/"]
+[includeIf "hasconfig:remote.*.url:https://github.com/nicholasdille/dotfiles"]
     path = ~/private/gitconfig
 [includeIf "gitdir:~/.passage/"]
     path = ~/private/gitconfig
