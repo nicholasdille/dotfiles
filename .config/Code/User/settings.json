@@ -70,5 +70,9 @@
     "[github-actions-workflow]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
-    "runme.telemetry.enabled": false
+    "runme.telemetry.enabled": false,
+    "gitlab.authentication.oauthClientIds": {
+        "https://gitlab.haufedev.systems": "7badd67dd0088c40ca163f1adbcdd98ac16f518e12662557c95dbdcaa746217a"
+    },
+    "extensions.ignoreRecommendations": true
 }

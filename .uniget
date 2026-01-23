@@ -1,9 +1,10 @@
 # shell
-powerline-go
+starship
 direnv
 mcfly
 navi
 yq
+rclone
 
 # wsl
 socat
@@ -64,7 +65,5 @@ presenterm
 rare
 semver
 socat
-wslu
-xdg-utils
 xmlstarlet
 yq

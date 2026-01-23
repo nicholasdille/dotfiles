@@ -34,12 +34,7 @@ sudo apt install git
 
 ### Visual Studio Code
 
-```shell
-uniget install vscode-cli
-echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections
-```
-
-Or maybe install directly from `https://update.code.visualstudio.com/{version}/linux-x64/stable`
+Follow the [official documentation](https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions)
 
 ### KeePassXC
 
@@ -66,12 +61,6 @@ Find latest version:
 curl -fI 'https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US' | grep -o 'firefox-[0-9.]\+[0-9]
 ```
 
-### Tabby
-
-See [homepage](https://tabby.sh/)
-
-Update from [releases](https://github.com/Eugeny/tabby/releases)
-
 ### Cryptomator
 
 ```shell
@@ -82,7 +71,7 @@ sudo apt install cryptomator
 
 ### Hibernate
 
-1. Configure a swap file or partition
+1. Configure a swap partition (size >= RAM)
 1. Configure `grub` and `initramfs`
 1. Test with `systemctl hibernate`
 1. Create a policy:

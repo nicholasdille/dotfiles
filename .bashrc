@@ -46,6 +46,7 @@ if type vim >/dev/null 2>&1; then
     export EDITOR=vim
 fi
 
+PATH="${HOME}/.local/bin:${PATH}"
 for FILE in ${HOME}/.local/etc/profile.d/*.sh; do
     #echo "Sourcing ${FILE}"
     source ${FILE}
