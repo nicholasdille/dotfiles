@@ -1,4 +1,0 @@
-#!/bin/bash
-set -o errexit
-
-PASSAGE_IDENTITIES_FILE=~/.passage/haufe/identities PASSAGE_DIR=~/.passage/haufe/store PASSAGE_EXTENSIONS_DIR=~/.passage/haufe/extensions passage "$@"

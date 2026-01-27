@@ -1,5 +1,0 @@
-[user]
-    email = nicholas.dille@haufe-lexware.com
-    signingkey = 0x20CAE7FDCB5E4899
-[commit]
-    gpgsign = false

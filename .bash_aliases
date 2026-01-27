@@ -7,7 +7,7 @@ alias gac="git add --all && git commit -m"
 alias gpsh="git push"
 alias gpll="git pull"
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias cs="config status -s"
 alias ca="config add"
 alias cc="config commit -m"
