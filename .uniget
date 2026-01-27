@@ -5,10 +5,7 @@ mcfly
 navi
 yq
 rclone
-
-# wsl
-socat
-win-gpg-agent
+git-credential-oauth
 
 # cloud
 hcloud
@@ -55,6 +52,7 @@ glow
 go
 golangci-lint
 goreleaser
+jf
 jless
 jq
 jwt
