@@ -14,7 +14,10 @@ copy-on-select = true
 right-click-action = copy-or-paste
 selection-clear-on-copy = true
 
-keybind = ctrl+shift+tab=new_window
+keybind = ctrl+tab=next_tab
+keybind = ctrl+shift+tab=previous_tab
+keybind = ctrl+n=new_window
+keybind = ctrl+t=new_tab
 keybind = alt+shift+<=new_split:right
 keybind = alt+shift+-=new_split:down
 keybind = alt+left=goto_split:left
