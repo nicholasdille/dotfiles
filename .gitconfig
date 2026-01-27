@@ -27,8 +27,9 @@
     helper = cache --timeout 21600
     helper = oauth
 
-[includeIf "gitdir:~/haufe/"]
+[include]
     path = ~/haufe/gitconfig
+
 [includeIf "gitdir:~/private/"]
     path = ~/private/gitconfig
 [includeIf "hasconfig:remote.*.url:https://github.com/nicholasdille/dotfiles"]
@@ -36,16 +37,6 @@
 [includeIf "gitdir:~/.passage/"]
     path = ~/private/gitconfig
 
-[credential "https://gitlab.haufedev.systems"]
-    helper = cache --timeout 21600
-    helper = oauth -verbose
-    oauthclientId = "e470614e4f062cf635e90e02152f5e8d4c010e6298433baa740b6f17adbb6079"
-    oauthScopes = "read_repository write_repository"
-    oauthAuthURL = /oauth/authorize
-    oauthTokenURL = /oauth/token
-    oauthDeviceAuthURL = /oauth/authorize_device
-[credential "https://gitlab-qa.haufedev.systems"]
-    helper = "!ph git-gitlab-qa"
 [credential "https://codeberg.org"]
     helper = "!pp git-codeberg"
 
