@@ -1,8 +1,12 @@
+auto-update = check
+
 quit-after-last-window-closed = false
 
 font-family = Cascadia Mono PL
 font-size = 13
 cursor-style = block
+split-divider-color = ffffff
+gtk-titlebar-style = tabs
 
 linux-cgroup = always
 linux-cgroup-hard-fail = true
