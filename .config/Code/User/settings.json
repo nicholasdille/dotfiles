@@ -74,5 +74,8 @@
     "gitlab.authentication.oauthClientIds": {
         "https://gitlab.haufedev.systems": "7badd67dd0088c40ca163f1adbcdd98ac16f518e12662557c95dbdcaa746217a"
     },
-    "extensions.ignoreRecommendations": true
+    "extensions.ignoreRecommendations": true,
+    "vs-kubernetes": {
+        "vs-kubernetes.crd-code-completion": "enabled"
+    }
 }
