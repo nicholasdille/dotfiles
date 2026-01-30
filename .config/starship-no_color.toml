@@ -1,0 +1,20 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """\
+$directory\
+$git_branch\
+$kubernetes\
+"""
+
+[directory]
+disabled = false
+truncation_length = 1
+truncation_symbol = ""
+format = " dir:$path"
+
+[git_branch]
+format = ' git:$branch(:$remote_branch)'
+
+[kubernetes]
+disabled = false
+format = ' k8s:$context:$namespace'

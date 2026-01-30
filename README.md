@@ -14,8 +14,6 @@ rm ~/.bash_logout ~/.bashrc ~/.profile
 config checkout
 ```
 
-As soon as you start a login shell for the first time, you will see the first launch setup.
-
 ## Windows Subsystem for Linux (WSL)
 
 To create a new distribution, download a root filesystem, e.g. [Ubuntu Hirsute](https://cloud-images.ubuntu.com/hirsute/current/), then import it using `wsl.exe --import my_name c:\wsl\ubuntu ~\Downloads\hirsute-server-cloudimg-amd64-wsl.rootfs.tar.gz`. Afterwards set a username as documented [here](https://docs.microsoft.com/en-us/windows/wsl/wsl-config#user).

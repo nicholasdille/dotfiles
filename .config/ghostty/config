@@ -17,6 +17,7 @@ window-inherit-font-size = true
 copy-on-select = true
 right-click-action = copy-or-paste
 selection-clear-on-copy = true
+clipboard-paste-protection = false
 
 keybind = ctrl+tab=next_tab
 keybind = ctrl+shift+tab=previous_tab

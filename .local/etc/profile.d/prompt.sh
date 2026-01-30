@@ -1,4 +1,8 @@
 if type starship >/dev/null 2>&1; then
+    function set_win_title(){
+        echo -ne "\033]0; $( STARSHIP_CONFIG=$HOME/.config/starship-no_color.toml starship prompt ) \007"
+    }
+    starship_precmd_user_func="set_win_title"
     eval "$(starship init bash)"
 
 elif type powerline-go >/dev/null 2>&1; then
