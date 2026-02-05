@@ -69,22 +69,33 @@ sudo apt install cryptomator
 
 ### Hibernate
 
-1. Configure a swap partition (size >= RAM)
-1. Configure `grub` and `initramfs`
-1. Test with `systemctl hibernate`
-1. Create a policy:
+1. Disable Secure Boot
+1. Swap partition with minimum size of RAM
+1. Encrypted swap is highly recommended
+1. If you are using LUKS and LVM but your swap partition is too small:
 
     ```shell
-    $ cat /etc/polkit-1/localauthority/50-local.d/hibernate.pkla
-    [Enable hibernate in upower]
-    Identity=unix-user:*
-    Action=org.freedesktop.upower.hibernate
-    ResultActive=yes
-    
-    [Enable hibernate in logind]
-    Identity=unix-user:*
-    Action=org.freedesktop.login1.hibernate;org.freedesktop.login1.handle-hibernate-key;org.freedesktop.login1;org.freedesktop.login1.hibernate-multiple-sessions;org.freedesktop.login1.hibernate-ignore-inhibit
-    ResultActive=yes
+    lvresize -L -50GB --resizefs /dev/mapper/vgzorin-root
+    lvresize -L +50GB /dev/mapper/vgzorin-swap_1
+    mkswap /dev/mapper/vgzorin-swap_1
     ```
-    
+
+1. Modify `/etc/default/grub` so that `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=/dev/mapper/vgzorin-swap_1"`
+1. Create `/etc/initramfs-tools/conf.d/resume` with content: `RESUME=/dev/mapper/vgzorin-swap_1`
+1. Test hibernation as superuser: `sudo systemctl hibernate`
+1. Create a policy in `/etc/polkit-1/rules.d/hibernate.rules` to allow hibernate by users:
+
+    ```plaintext
+    polkit.addRule(function(action, subject) {
+        if (action.id == "org.freedesktop.login1.hibernate" ||
+            action.id == "org.freedesktop.login1.hibernate-multiple-sessions" ||
+            action.id == "org.freedesktop.upower.hibernate" ||
+            action.id == "org.freedesktop.login1.handle-hibernate-key" ||
+            action.id == "org.freedesktop.login1.hibernate-ignore-inhibit") {
+            return polkit.Result.YES;
+        }
+    });
+    ```
+
+1. Test hibernation as user: `systemctl hibernate`
 1. Install [Hibernate Status Button](https://extensions.gnome.org/extension/755/hibernate-status-button/)
