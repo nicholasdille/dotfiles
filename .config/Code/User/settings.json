@@ -79,5 +79,6 @@
         "vs-kubernetes.crd-code-completion": "enabled"
     },
     "gitlab.duoCodeSuggestions.enabled": false,
-    "hediet.vscode-drawio.resizeImages": null
+    "hediet.vscode-drawio.resizeImages": null,
+    "workbench.editor.empty.hint": "hidden"
 }
