@@ -7,6 +7,7 @@ $directory\
 $git_branch\
 $git_status\
 $kubernetes\
+$status\
 [ ](bg:bright-black)[](fg:bright-black) \
 """
 
@@ -27,16 +28,18 @@ style = "fg:15 bg:237"
 [git_branch]
 format = '[ $symbol$branch(:$remote_branch) ]($style)'
 symbol = " "
-style = "fg:15 bg:161"
+style = "fg:black bg:yellow"
 
 [git_status]
-format = '[ $ahead_behind ($all_status )]($style)'
+format = '($ahead_behind)[( $all_status )]($style)'
 style = "fg:15 bg:130"
+# ahead_behind:
 conflicted = "" #"!"
-ahead = "${count}⇡"
-behind = "${count}⇣"
-diverged = "X⇡${ahead_count}⇣${behind_count}" #"V" #"󰓁"
-up_to_date = ""
+ahead = "[( ${count}⇡ )](fg:15 bg:130)"
+behind = "[( ${count}⇣ )](fg:15 bg:130)"
+diverged = "[( X⇡${ahead_count}⇣${behind_count} )](fg:15 bg:130)" #"V" #"󰓁"
+up_to_date = "[  ](fg:black bg:bright-green)"
+# all_status:
 untracked = "${count}?"
 stashed = "${count}_"
 modified = "${count}~"
@@ -53,4 +56,10 @@ style = ""
 [character]
 success_symbol = '[ ](bg:bright-black)'
 error_symbol = '[ ✗](fg:bright-red bg:bright-black)'
+
+[status]
+disabled = false
+format = '[ ! $status ]($style)'
+map_signal = true
+style = "fg:15 bg:161"
 
