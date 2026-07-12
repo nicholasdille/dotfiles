@@ -9,6 +9,7 @@ services:
       # resources
       RAM_SIZE: "8G"
       CPU_CORES: "4"
+      DISK_SIZE: "64GB"
       # credentials
       USERNAME: "bill"
       PASSWORD: "gates"
@@ -27,6 +28,6 @@ services:
     - 127.0.0.1:3389:3389/tcp
     - 127.0.0.1:3389:3389/udp
     volumes:
-    - $HOME/.local/libexec/windows:/storage
+    - $HOME/.windows:/storage
     restart: always
     stop_grace_period: 2m
