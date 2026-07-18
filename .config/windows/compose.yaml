@@ -7,7 +7,7 @@ services:
       # version
       VERSION: "11"
       # resources
-      RAM_SIZE: "8G"
+      RAM_SIZE: "6G"
       CPU_CORES: "4"
       DISK_SIZE: "64GB"
       # credentials
