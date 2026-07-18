@@ -60,6 +60,6 @@ error_symbol = '[ ✗](fg:bright-red bg:bright-black)'
 [status]
 disabled = false
 format = '[ ! $status ]($style)'
-map_signal = true
+map_symbol = true
 style = "fg:15 bg:161"
 
