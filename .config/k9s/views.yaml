@@ -1,0 +1,8 @@
+views:
+  v1/nodes:
+    sortColumn: NODE-TYPE:asc
+    columns:
+      - NAME
+      - STATUS
+      - NODE-TYPE:.metadata.labels.haufedev\.systems/node-type
+      - InternalIP:.status.addresses[?(@.type=="InternalIP")].address
