@@ -1,8 +1,22 @@
 views:
   v1/nodes:
-    sortColumn: NODE-TYPE:asc
+    sortColumn: NODE-GROUP:asc
     columns:
-      - NAME
+      - NAME:.metadata.name|split(".")|.[0]
       - STATUS
+      - INTERNAL-IP|S
       - NODE-TYPE:.metadata.labels.haufedev\.systems/node-type
-      - InternalIP:.status.addresses[?(@.type=="InternalIP")].address
+      - NODE-ARCH:.metadata.labels.kubernetes\.io/arch
+      - NODE-GROUP:.metadata.labels.eks\.amazonaws\.com/nodegroup
+      - NODE-AZ:.metadata.labels.topology\.kubernetes\.io/zone
+      - CPU/C:.status.capacity.cpu|NR
+      - MEM/C:.status.capacity.memory|NR
+      - ROLE|H
+      - CPU|W
+      - CPU/A|W
+      - MEM|W
+      - MEM/A|W
+      - GPU/A|W
+      - GPU/C|W
+      - SH-GPU/A|W
+      - SH-GPU/C|W

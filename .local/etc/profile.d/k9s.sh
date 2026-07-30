@@ -1,0 +1,2 @@
+export K9S_FEATURE_GATE_NODE_SHELL=true
+export K9S_SKIN=axual
