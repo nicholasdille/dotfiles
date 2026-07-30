@@ -46,7 +46,7 @@
     ],
     "scm.alwaysShowRepositories": true,
     "terminal.integrated.enableImages": true,
-    "terminal.integrated.fontFamily": "Cascadia Code PL",
+    "terminal.integrated.fontFamily": "Cascadia Mono PL",
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.gpuAcceleration": "on",
     "workbench.editorAssociations": {
@@ -80,5 +80,15 @@
     },
     "gitlab.duoCodeSuggestions.enabled": false,
     "hediet.vscode-drawio.resizeImages": null,
-    "workbench.editor.empty.hint": "hidden"
+    "workbench.editor.empty.hint": "hidden",
+    "chat.tools.urls.autoApprove": {
+        "https://code.visualstudio.com": true,
+        "https://github.com/microsoft/vscode/wiki/*": true,
+        "https://github.com": true
+    },
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "chat.viewSessions.enabled": false,
+    "chat.tools.terminal.autoApprove": {
+        "go": true
+    }
 }
