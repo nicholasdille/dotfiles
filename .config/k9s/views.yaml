@@ -20,3 +20,10 @@ views:
       - GPU/C|W
       - SH-GPU/A|W
       - SH-GPU/C|W
+  infrastructure.cluster.x-k8s.io/v1beta2/awsmanagedmachinepools:
+    sortColumn: NAME:asc
+    columns:
+      - NAME
+      - READY
+      - MAX-SIZE:.spec.scaling.maxSize|NR
+      - MIN-SIZE:.spec.scaling.minSize|NR
