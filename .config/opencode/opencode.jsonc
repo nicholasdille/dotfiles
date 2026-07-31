@@ -1,0 +1,47 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "lsp": {},
+  "mcp": {
+    "gitlab": {
+      "type": "local",
+      "command": [
+        "glab",
+        "mcp",
+        "serve"
+      ],
+      "enabled": true
+    },
+    "codegraph": {
+      "type": "local",
+      "command": [
+        "codegraph",
+        "serve",
+        "--mcp"
+      ],
+      "enabled": true
+    },
+    "k8s": {
+      "type": "local",
+      "command": [
+        "kubernetes-mcp-server",
+        "--read-only"
+      ],
+      "enabled": true
+    },
+    "aws-eks": {
+      "tools": [
+        "*"
+      ],
+      "type": "local",
+      "command": [
+        "uvx",
+        "awslabs.eks-mcp-server@latest",
+        "--no-allow-write"
+      ],
+      "environment": {
+        "AWS_REGION": "eu-central-1"
+      },
+      "enabled": true
+    }
+  }
+}

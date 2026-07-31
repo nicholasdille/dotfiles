@@ -25,5 +25,6 @@ views:
     columns:
       - NAME
       - READY
+      - REPLICAS
       - MAX-SIZE:.spec.scaling.maxSize|NR
       - MIN-SIZE:.spec.scaling.minSize|NR
