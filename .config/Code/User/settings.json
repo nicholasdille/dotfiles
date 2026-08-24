@@ -90,5 +90,6 @@
     "chat.viewSessions.enabled": false,
     "chat.tools.terminal.autoApprove": {
         "go": true
-    }
+    },
+    "git.blame.editorDecoration.enabled": false
 }
