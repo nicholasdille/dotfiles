@@ -11,6 +11,14 @@
       ],
       "enabled": true
     },
+    "github": {
+      "type": "local",
+      "command": [
+        "github-mcp-server",
+        "stdio"
+      ],
+      "enabled": true
+    },
     "codegraph": {
       "type": "local",
       "command": [
