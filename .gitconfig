@@ -23,9 +23,22 @@
 	rebase = true
 [checkout]
         defaultRemote = origin
-[credential]
-    helper = cache --timeout 21600
-    helper = oauth
+
+[credential "https://codeberg.org"]
+	helper = cache --timeout 7200
+	helper = oauth
+	uthClientId = a4792ccc-144e-407e-86c9-5e7d8d9c3269
+	uthAuthURL = /login/oauth/authorize
+	uthTokenURL = /login/oauth/access_token
+[credential "https://gitlab.com"]
+	helper = 
+	helper = !/home/nicholas/.local/bin/glab auth git-credential
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/nicholas/.local/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/nicholas/.local/bin/gh auth git-credential
 
 [include]
     path = ~/haufe/gitconfig
@@ -37,10 +50,6 @@
 [includeIf "gitdir:~/.passage/"]
     path = ~/private/gitconfig
 
-[credential "https://codeberg.org"]
-    helper = "!pp git-codeberg"
-
 [alias]
     lg  = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
     lgg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-
