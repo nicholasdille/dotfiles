@@ -5,6 +5,9 @@ if type starship >/dev/null 2>&1; then
     starship_precmd_user_func="set_win_title"
     eval "$(starship init bash)"
 
+elif [[ "${ASCIINEMA_REC}" == "1" ]]; then
+    export PS1='$ '
+
 elif type powerline-go >/dev/null 2>&1; then
     function _update_ps1() {
         PS1="$(echo -ne "\033]0;$(basename "${PWD}")\a"; powerline-go -theme ${HOME}/.local/etc/powerline-go-theme.json -error $? -modules exit,ssh,host,user,cwd,git,docker-context,kube,jobs -priority exit,ssh,host,user,cwd,jobs,git,kube,docker-context -newline -cwd-mode dironly -hostname-only-if-ssh)"
