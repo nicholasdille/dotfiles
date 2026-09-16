@@ -32,13 +32,13 @@
 	uthTokenURL = /login/oauth/access_token
 [credential "https://gitlab.com"]
 	helper = 
-	helper = !/home/nicholas/.local/bin/glab auth git-credential
+	helper = !glab auth git-credential
 [credential "https://github.com"]
 	helper = 
-	helper = !/home/nicholas/.local/bin/gh auth git-credential
+	helper = !gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !/home/nicholas/.local/bin/gh auth git-credential
+	helper = !gh auth git-credential
 
 [include]
     path = ~/haufe/gitconfig
