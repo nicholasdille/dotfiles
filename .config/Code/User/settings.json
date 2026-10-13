@@ -84,7 +84,20 @@
     "chat.tools.urls.autoApprove": {
         "https://code.visualstudio.com": true,
         "https://github.com/microsoft/vscode/wiki/*": true,
-        "https://github.com": true
+        "https://github.com": true,
+        "https://docs.renovatebot.com": {
+            "approveRequest": false,
+            "approveResponse": true
+        },
+        "https://brand.sonarsource.com": true,
+        "https://hoppscotch.com": {
+            "approveRequest": true,
+            "approveResponse": false
+        },
+        "https://docs.gitlab.com": {
+            "approveResponse": true
+        },
+        "https://*.gitlab.com": true
     },
     "workbench.secondarySideBar.defaultVisibility": "hidden",
     "chat.viewSessions.enabled": false,

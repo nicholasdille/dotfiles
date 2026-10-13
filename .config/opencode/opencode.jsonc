@@ -35,21 +35,6 @@
         "--read-only"
       ],
       "enabled": true
-    },
-    "aws-eks": {
-      "tools": [
-        "*"
-      ],
-      "type": "local",
-      "command": [
-        "uvx",
-        "awslabs.eks-mcp-server@latest",
-        "--no-allow-write"
-      ],
-      "environment": {
-        "AWS_REGION": "eu-central-1"
-      },
-      "enabled": true
     }
   }
 }
