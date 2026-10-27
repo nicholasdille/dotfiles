@@ -1,0 +1,6 @@
+experimental:
+  native_describe: true
+
+skin:
+  name: catppuccin-mocha
+  background: true
