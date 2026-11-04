@@ -1,0 +1,71 @@
+copy-on-select = true
+theme = "dracula"
+draw-bold-text-with-light-colors = false
+
+[developer]
+# DEBUG, INFO, TRACE, ERROR, WARN, OFF
+log-level = "OFF"
+enable-log-file = false
+
+[adaptive-theme]
+light = "belafonte-day"
+dark = "belafonte-night"
+
+[keyboard]
+hide-mouse-cursor-when-typing = false
+
+[cursor]
+shape = "block"
+blinking = false
+
+[bell]
+visual = true
+audio = false
+tab-indicator = true
+
+[editor]
+program = "code"
+
+[fonts]
+size = 12
+disable-warnings-not-found = false
+family = "cascadiacode"
+
+[navigation]
+mode = "Tab"
+use-split = true
+unfocused-split-opacity = 0.7
+unfocused-split-fill = "#000000"
+
+[scroll]
+enable-scroll-bar = true
+scrollback-history-limit = 10000
+
+[shell]
+shell-integration = true
+
+[title]
+content = "{{ PROGRAM }} - {{ ABSOLUTE_PATH }}"
+
+[window]
+mode = "Windowed"
+quake-width-percentage = 1.0
+quake-height-percentage = 0.4
+opacity = 1.0
+blur = false
+windows-corner-preference = "Round"
+
+[bindings]
+keys = [
+    # tabs
+    { key = "t"      with = "control"      action = "CreateTab" },
+    { key = "w"      with = "control"      action = "CloseTab" },
+    # split
+    { key = "<",     with = "shift | alt", action = "SplitRight" },
+    { key = "-",     with = "shift | alt", action = "SplitDown" },
+    # resize
+    { key = "up",    with = "shift | alt", action = "MoveDividerUp" },
+    { key = "down",  with = "shift | alt", action = "MoveDividerDown" },
+    { key = "left",  with = "shift | alt", action = "MoveDividerLeft" },
+    { key = "right", with = "shift | alt", action = "MoveDividerRight" },
+]
