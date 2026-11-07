@@ -33,7 +33,18 @@
       "type": "local",
       "command": [
         "kubernetes-mcp-server",
-        "--read-only"
+        "--config=$HOME/.config/kubernetes-mcp-server/config.toml"
+      ],
+      "enabled": true
+    },
+    "scw": {
+      "type": "local",
+      "command": [
+        "scw",
+        "mcp",
+        "server",
+        "serve",
+        "read-only=true"
       ],
       "enabled": true
     }
