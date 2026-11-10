@@ -107,5 +107,6 @@
     "git.blame.editorDecoration.enabled": false,
     "chat.editor.preferCopilotHarness": false,
     "github.copilot.chat.copilotDebugCommand.enabled": false,
-    "github.copilot.chat.tools.viewImage.enabled": false
+    "github.copilot.chat.tools.viewImage.enabled": false,
+    "window.title": "${dirty}${rootPath}${separator}${appName}"
 }
