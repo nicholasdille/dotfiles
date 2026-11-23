@@ -4,13 +4,8 @@
   "lsp": {},
   "mcp": {
     "gitlab": {
-      "type": "local",
-      "command": [
-        "glab",
-        "mcp",
-        "serve"
-      ],
-      "enabled": true
+      "type": "remote",
+      "url": "https://gitlab.com/api/v4/mcp"
     },
     "github": {
       "type": "local",
